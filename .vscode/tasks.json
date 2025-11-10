@@ -53,6 +53,16 @@
       ],
       "group": "build",
       "problemMatcher": []
+    },
+
+    {
+      "label": "RUN GAME Debug",
+      "type": "shell",
+      "command": "./build/debug/bin/Game",
+      "args": [
+      ],
+      "group": "build",
+      "problemMatcher": []
     }
 ]
 }
