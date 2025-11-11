@@ -27,7 +27,7 @@ struct Vec2
         return {x - n, y - n};
     }
 
-    Vec2& operator-=(const Vec2& other)
+    Vec2& operator-=(const Vec2<T>& other)
     {
         x -= other.x;
         y -= other.y;
@@ -45,6 +45,15 @@ struct Vec2
     {
         x += n;
         y += n;
+
+        return *this;
+    }
+
+    Vec2& operator+=(const Vec2<T>& other)
+    {
+        x += other.x;
+        y += other.y;
+        
         return *this;
     }
 };

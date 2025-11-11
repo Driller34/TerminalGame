@@ -1,10 +1,12 @@
 #pragma once
 #include "../Utils/Vec.hpp"
 #include "../Drawable.hpp"
+#include "../Transformable.hpp"
 #include "Window.hpp"
 
 
-class Sprite : public Drawable
+class Sprite : public Drawable,
+               public Transformable
 {
 public:
     Sprite(const Image& image,
@@ -12,14 +14,9 @@ public:
 
     void setImage(const Image& image);
 
-    void move(const Vec2i& offset);
-
-    void setPosition(const Vec2i& position);
-
     virtual void draw(Window& window,
         const Vec2i& position) override;
     
 private:
     Image mImage;
-    Vec2i mPosition;
 };

@@ -5,6 +5,7 @@ set(HEADERS
     Loader/BMP.hpp
     Loader/BMPLoader.hpp
     Drawable.hpp
+    Transformable.hpp
     Graphic/Window.hpp
     Graphic/Sprite.hpp
     Utils/Input.hpp

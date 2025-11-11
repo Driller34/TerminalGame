@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
+#include <concepts>
 #include "../Drawable.hpp"
+#include "../Transformable.hpp"
 #include "Image.hpp"
 #include "../Utils/Vec.hpp"
 #include "../Utils/Color.hpp"
@@ -15,7 +17,14 @@ public:
     void draw(T& object,
         const Vec2i& position = {0, 0})
     {
-        object.draw(*this, position);
+        Vec2i finalPosition = position;
+
+        if constexpr (std::derived_from<T, Transformable>)
+        {
+            finalPosition += object.getPosition();
+        }
+
+        object.draw(*this, finalPosition);
     }
 
     void draw(const Image& image, 
