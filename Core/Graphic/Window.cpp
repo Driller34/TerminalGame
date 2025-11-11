@@ -12,13 +12,14 @@ Window::Window(const size_t width,
 void Window::clear()
 {
     mViewImage.clear();
+    display();
 }
 
-void Window::setColor(const Color& color,
-    const Point& position)
+void Window::displayPoint(const Vec2i& position,
+    const Color& color)
 {
-    std::cout<<"\033["<<position.x + 1ULL<<";"<<position.y + 1ULL<<"H";
-    std::cout<<"\033[48;2;"<<color.toString()<<"m \033[0m";
+    std::cout<<"\033["<<position.x + 1<<";"<<position.y + 1<<"H";
+    std::cout<<"\033[48;2;"<<color.toString()<<"m  \033[0m";
 }
 
 void Window::display()
@@ -27,34 +28,27 @@ void Window::display()
     {
         for(size_t x = 0ULL; x < mViewImage.width; x++)
         {
-            Point current{x, y};
-            setColor(mViewImage.getColor(current), current);
+            Vec2i current{x, y};
+            displayPoint(current, mViewImage.getColor(current));
         }
     }
 }
 
-void Window::setPoint(const Point& position,
+void Window::setColor(const Vec2i& position,
     const Color& color)
 {
     mViewImage.setPixel(position, color);
 }
 
-template<IsDrawable T>
-void Window::draw(const T& object,
-    const Point& position)
-{
-    
-}
-
 void Window::draw(const Image& image, 
-    const Point& position)
+    const Vec2i& position)
 {
     for(size_t y = 0ULL; y < image.height; y++)
     {
         for(size_t x = 0ULL; x < image.width; x++)
         {
-            const Point currentPosition = Point{x, y} + position;
-            setPoint(currentPosition, image.getColor({x, y}));
+            const Vec2i currentPosition = Vec2i{x, y} + position;
+            setColor(currentPosition, image.getColor(Vec2i{x, y}));
         }
     }
 }

@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
 #include <iostream>
-#include "Color.hpp"
-#include "Point.hpp"
+#include "../Utils/Color.hpp"
+#include "../Utils/Vec.hpp"
 
 struct Image
 {   
@@ -21,36 +21,40 @@ struct Image
         grid.resize(width * height);
     }
 
-    size_t getIndex(const Point& position) const 
+    size_t getIndex(const Vec2i& position) const 
     {
-        if(position.x >= width || position.y >= height){ return 0ULL;}
+        if(position.x >= width 
+            || position.y >= height 
+            || position.x < 0 
+            || position.y < 0){ return 0ULL;}
+
         return position.y * width + position.x;
     }
 
-    Color getColor(const Point& point) const
+    Color getColor(const Vec2i& position) const
     {
-        return grid[getIndex(point)];
+        return grid[getIndex(position)];
     }
 
-    void setPixel(const Point& position, 
+    void setPixel(const Vec2i& position, 
         const Color& c) 
     {
-        if(position.x >= width || position.y >= height){ return;}
+        if(position.x >= width || position.y >= height){ return; }
         grid[getIndex(position)] = c;
     }
 
     void setImage(const std::vector<std::vector<Color>>& image)
     {
-        const size_t w = image.size();
-        const size_t h = image[0].size();
+        const size_t w = image[0].size();
+        const size_t h = image.size();
 
         if(w > width || h > height){ return; }
 
-        for(size_t y = 0ULL; y < h; y++)
+        for(int y = 0; y < h; y++)
         {
-            for(size_t x = 0ULL; x < w; x++)
+            for(int x = 0; x < w; x++)
             {
-                grid[getIndex({x, y})] = image[x][y];
+                grid[getIndex({x, y})] = image[y][x];
             }
         }
     }

@@ -1,13 +1,15 @@
 set(HEADERS
-    Color.hpp
-    Point.hpp
-    Image.hpp
-    Window.hpp
+    Utils/Color.hpp
+    Utils/Vec.hpp
+    Graphic/Image.hpp
     Drawable.hpp
+    Graphic/Window.hpp
+    Graphic/Sprite.hpp
 )
 
 set(SOURCES
-    Window.cpp
+    Graphic/Window.cpp
+    Graphic/Sprite.cpp
 )
 
 add_library(Core STATIC)

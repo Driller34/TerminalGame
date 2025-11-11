@@ -1,28 +1,47 @@
 #include <iostream>
-#include "../Core/Window.hpp"
+#include <vector>
+#include "../Core/Graphic/Window.hpp"
+#include "../Core/Graphic/Sprite.hpp"
 
 int main()
 {
     Window window(50ULL, 90ULL);
 
-    Image sprite(4, 4);
+    std::vector<std::vector<Color>> b1(4, std::vector<Color>(4, {0, 255, 0}));
+    std::vector<std::vector<Color>> b2(10, std::vector<Color>(10, {0, 255, 255}));
+    std::vector<std::vector<Color>> b3(2, std::vector<Color>(4, {155, 100, 0}));
+    std::vector<std::vector<Color>> b4(10, std::vector<Color>(8, {255, 0, 0}));
 
-    sprite.setImage({
-        {{0, 255, 0}, {0, 200, 0}, {0, 155, 0}, {0, 100, 0}},
-        {{0, 255, 0}, {0, 200, 0}, {0, 155, 0}, {0, 100, 0}},
-        {{0, 255, 0}, {0, 200, 0}, {0, 155, 0}, {0, 100, 0}},
-        {{0, 255, 0}, {0, 200, 0}, {0, 155, 0}, {0, 100, 0}}
-    });
+    Image s1(4, 4);
+    s1.setImage(b1);
 
-    window.draw(sprite, {10, 10});
+    Image s2(10, 10);
+    s2.setImage(b2);
 
-    Image img(2, 4, {0, 255, 0});
+    Image s3(4, 2);
+    s3.setImage(b3);
 
-    window.draw(img, {5, 5});
+    Image s4(8, 10);
+    s4.setImage(b4);
 
-    window.setPoint({0, 0}, {0, 0, 0});
+    Sprite sp1(s1);
+    Sprite sp2(s2, {10, 10});
+    Sprite sp3(s3, {5, 5});
+    Sprite sp4(s4, {20, 40});
 
-    window.display();
-    
+    while(true)
+    {
+        window.clear();
+
+        sp1.move({0, 1});
+
+        window.draw(sp1);
+        window.draw(sp2);
+        window.draw(sp3);
+        window.draw(sp4);
+
+        window.display();
+    }
+
     return 0;
 }

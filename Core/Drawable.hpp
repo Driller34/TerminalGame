@@ -1,13 +1,16 @@
 #pragma once
-#include "Window.hpp"
-#include "Point.hpp"
+#include <concepts>
+#include "Utils/Vec.hpp"
+
+class Window;
 
 class Drawable
 {
 public:
     virtual ~Drawable() = default;
 
-    virtual void draw() = 0;
+    virtual void draw(Window& renderTarger, 
+        const Vec2i& position) = 0;
 };
 
 template<typename T>

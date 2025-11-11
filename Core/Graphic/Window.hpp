@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
-#include "Drawable.hpp"
+#include "../Drawable.hpp"
 #include "Image.hpp"
-#include "Point.hpp"
-#include "Color.hpp"
+#include "../Utils/Vec.hpp"
+#include "../Utils/Color.hpp"
 
 class Window
 {
@@ -12,21 +12,24 @@ public:
         const size_t height);
 
     template<IsDrawable T>
-    void draw(const T& object,
-        const Point& position = {0, 0});
+    void draw(T& object,
+        const Vec2i& position = {0, 0})
+    {
+        object.draw(*this, position);
+    }
 
     void draw(const Image& image, 
-        const Point& position);
+        const Vec2i& position = {0, 0});
 
-    void setPoint(const Point& position,
+    void setColor(const Vec2i& position,
         const Color& color);
 
     void clear();
     void display();
 
 private:
-    void setColor(const Color& color,
-        const Point& position);
+    void displayPoint(const Vec2i& position,
+        const Color& color);
 
 private:
     size_t mWidth;
