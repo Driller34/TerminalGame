@@ -2,22 +2,32 @@
 
 #include <termios.h>
 #include <unistd.h>
-
+#include <fcntl.h>
+#include <unistd.h>
+#include <optional>
 
 namespace Input
 {
-    char getKey() 
+    inline std::optional<char> getKey()
     {
-        char buf = 0;
-        struct termios old = {0};
-        tcgetattr(STDIN_FILENO, &old);
-        old.c_lflag &= ~ICANON;
-        old.c_lflag &= ~ECHO;
-        tcsetattr(STDIN_FILENO, TCSANOW, &old);
-        read(STDIN_FILENO, &buf, 1);
-        old.c_lflag |= ICANON;
-        old.c_lflag |= ECHO;
-        tcsetattr(STDIN_FILENO, TCSADRAIN, &old);
-        return buf;
+        termios oldSettings;
+        termios newSettings;
+
+        tcgetattr(STDIN_FILENO, &oldSettings);
+        newSettings = oldSettings;
+        newSettings.c_lflag &= ~(ICANON | ECHO);
+        tcsetattr(STDIN_FILENO, TCSANOW, &newSettings);
+
+        int flags = fcntl(STDIN_FILENO, F_GETFL, 0);
+        fcntl(STDIN_FILENO, F_SETFL, flags | O_NONBLOCK);
+
+        char buffor = 0;
+        int n = read(STDIN_FILENO, &buf, 1);
+
+        tcsetattr(STDIN_FILENO, TCSANOW, &oldSettings);
+        fcntl(STDIN_FILENO, F_SETFL, flags);
+
+        if(n > 0){ return buffor; }
+        else{ return std::nullopt; }
     }
 }

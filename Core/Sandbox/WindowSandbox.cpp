@@ -1,6 +1,5 @@
 #include "../Graphic/Window.hpp"
 #include "../Graphic/Sprite.hpp"
-#include "../Utils/Input.hpp"
 
 int main()
 {
@@ -31,14 +30,6 @@ int main()
     while(true)
     {
         window.clear();
-        
-        const char c = Input::getKey();
-
-        if(c == 'd')
-        sp1.move({0, 1});
-
-        if(c == 'a')
-        sp1.move({0, -1});
 
         window.draw(sp1);
         window.draw(sp2);
