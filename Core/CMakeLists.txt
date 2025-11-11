@@ -5,6 +5,7 @@ set(HEADERS
     Drawable.hpp
     Graphic/Window.hpp
     Graphic/Sprite.hpp
+    Utils/Input.hpp
 )
 
 set(SOURCES
@@ -24,3 +25,5 @@ target_sources(Core
 target_include_directories(Core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADERS} ${SOURCES})
+
+add_subdirectory(Sandbox)
