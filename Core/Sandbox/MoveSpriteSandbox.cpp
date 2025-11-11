@@ -5,7 +5,7 @@
 int main()
 {
     Window window(50ULL, 90ULL);
-    std::vector<std::vector<Color>> b1(4, std::vector<Color>(4, {0, 255, 0}));
+    std::vector<std::vector<Color>> b1(4, std::vector<Color>(4, {0, 255, 0, 255}));
     Image s1(4, 4);
     s1.setImage(b1);
 

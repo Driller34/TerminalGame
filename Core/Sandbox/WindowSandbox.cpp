@@ -5,10 +5,10 @@ int main()
 {
     Window window(50ULL, 90ULL);
 
-    std::vector<std::vector<Color>> b1(4, std::vector<Color>(4, {0, 255, 0}));
-    std::vector<std::vector<Color>> b2(10, std::vector<Color>(10, {0, 255, 255}));
-    std::vector<std::vector<Color>> b3(2, std::vector<Color>(4, {155, 100, 0}));
-    std::vector<std::vector<Color>> b4(10, std::vector<Color>(8, {255, 0, 0}));
+    std::vector<std::vector<Color>> b1(4, std::vector<Color>(4, {0, 255, 0, 255}));
+    std::vector<std::vector<Color>> b2(10, std::vector<Color>(10, {0, 255, 255, 255}));
+    std::vector<std::vector<Color>> b3(2, std::vector<Color>(4, {155, 100, 0, 255}));
+    std::vector<std::vector<Color>> b4(10, std::vector<Color>(8, {255, 0, 0, 255}));
 
     Image s1(4, 4);
     s1.setImage(b1);

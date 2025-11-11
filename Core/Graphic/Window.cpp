@@ -18,6 +18,7 @@ void Window::clear()
 void Window::displayPoint(const Vec2i& position,
     const Color& color)
 {
+    if(color.alpha < 255){ return; }
     std::cout<<"\033["<<position.x + 1<<";"<<position.y + 1<<"H";
     std::cout<<"\033[48;2;"<<color.toString()<<"m  \033[0m";
 }

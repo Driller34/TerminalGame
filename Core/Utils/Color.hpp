@@ -1,35 +1,38 @@
 #pragma once
 #include <string>
+#include <cstdint>
 
 struct Color
 {
-    size_t red;
-    size_t green;
-    size_t blue;
+    uint8_t red;
+    uint8_t green;
+    uint8_t blue;
+    uint8_t alpha = 255;
 
     std::string toString() const
     {
-        return std::to_string(red)+";"+std::to_string(green)+";"+std::to_string(blue);
-    }
-
-    Color operator*(const size_t n) const
-    {
-        return { (red * n) % 256, 
-            (green * n) % 256, 
-            (blue * n) % 256 };
+        return std::to_string(red) + ";" +
+               std::to_string(green) + ";" +
+               std::to_string(blue);
     }
 
     Color operator*(const double n) const
     {
-        return { static_cast<size_t>(red * n) % 256, 
-            static_cast<size_t>(green * n) % 256, 
-            static_cast<size_t>(blue * n) % 256 };
+        return {
+            static_cast<uint8_t>(red * n),
+            static_cast<uint8_t>(green * n),
+            static_cast<uint8_t>(blue * n),
+            static_cast<uint8_t>(alpha * n)
+        };
     }
 
     Color operator+(const Color& color) const
     {
-        return { (red + color.red) % 256, 
-            (green + color.green) % 256, 
-            (blue + color.blue) % 256 };
+        return {
+            static_cast<uint8_t>(std::min(255, red + color.red)),
+            static_cast<uint8_t>(std::min(255, green + color.green)),
+            static_cast<uint8_t>(std::min(255, blue + color.blue)),
+            static_cast<uint8_t>(std::min(255, alpha + color.alpha))
+        };
     }
 };

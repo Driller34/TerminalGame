@@ -8,7 +8,7 @@ struct Image
 {   
     Image(const size_t w, 
         const size_t h,
-        const Color backgroundColor = Color{255, 255, 255})
+        const Color backgroundColor = Color{255, 255, 255, 255})
         : width(w),
         height(h),
         grid(width * height, backgroundColor)
