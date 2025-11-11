@@ -18,8 +18,10 @@ void Window::clear()
 void Window::displayPoint(const Vec2i& position,
     const Color& color)
 {
-    if(color.alpha < 255){ return; }
-    std::cout<<"\033["<<position.x + 1<<";"<<position.y + 1<<"H";
+    if(color.alpha != 255){ return; }
+    if(position.y >= mHeight || position.x >= mWidth){ return; }
+
+    std::cout<<"\033["<<position.y + 1<<";"<<(position.x * 2) + 1<<"H";
     std::cout<<"\033[48;2;"<<color.toString()<<"m  \033[0m";
 }
 
@@ -38,6 +40,7 @@ void Window::display()
 void Window::setColor(const Vec2i& position,
     const Color& color)
 {
+    if(color.alpha != 255){ return; }   
     mViewImage.setPixel(position, color);
 }
 

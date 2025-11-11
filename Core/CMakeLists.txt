@@ -2,6 +2,8 @@ set(HEADERS
     Utils/Color.hpp
     Utils/Vec.hpp
     Graphic/Image.hpp
+    Loader/BMP.hpp
+    Loader/BMPLoader.hpp
     Drawable.hpp
     Graphic/Window.hpp
     Graphic/Sprite.hpp
