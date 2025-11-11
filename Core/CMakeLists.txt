@@ -9,11 +9,14 @@ set(HEADERS
     Graphic/Window.hpp
     Graphic/Sprite.hpp
     Utils/Input.hpp
+    Layers/Layer.hpp
+    Layers/LayerManager.hpp
 )
 
 set(SOURCES
     Graphic/Window.cpp
     Graphic/Sprite.cpp
+    Layers/LayerManager.cpp
 )
 
 add_library(Core STATIC)
