@@ -46,6 +46,7 @@ public:
             case 'a': mPlayer.move({-1, 0}); break;
             case 'w': mPlayer.move({0, -1}); break;
             case 's': mPlayer.move({0, 1}); break;
+            case 'e': mManager.pop(); break;
             default: break;
         }
     }

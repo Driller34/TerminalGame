@@ -1,5 +1,7 @@
 #pragma once
 #include <cstdint>
+#include <vector>
+#include <istream>
 
 #pragma pack(push, 1)
 struct BMPHeader
@@ -46,16 +48,4 @@ struct BMP
 };
 
 std::istream& operator>>(std::istream& is, 
-    BMP& bmp)
-{
-    is.read(reinterpret_cast<char*>(&bmp.header), sizeof(BMPHeader));
-    is.read(reinterpret_cast<char*>(&bmp.DIBHeader), sizeof(BMPDIBHeader));
-
-    const size_t pixelDataSize = bmp.header.fileSize - bmp.header.offsetData;
-
-    bmp.colorArray.resize(pixelDataSize);
-    is.seekg(bmp.header.offsetData, std::ios::beg);
-    is.read(reinterpret_cast<char*>(bmp.colorArray.data()), pixelDataSize);
-
-    return is;
-}
+    BMP& bmp);

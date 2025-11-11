@@ -11,12 +11,16 @@ set(HEADERS
     Utils/Input.hpp
     Layers/Layer.hpp
     Layers/LayerManager.hpp
+    ResourceManager.hpp
 )
 
 set(SOURCES
     Graphic/Window.cpp
     Graphic/Sprite.cpp
+    Loader/BMP.cpp
+    Loader/BMPLoader.cpp
     Layers/LayerManager.cpp
+    ResourceManager.cpp
 )
 
 add_library(Core STATIC)

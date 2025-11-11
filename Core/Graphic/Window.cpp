@@ -20,6 +20,7 @@ void Window::displayPoint(const Vec2i& position,
 {
     if(color.alpha != 255){ return; }
     if(position.y >= mHeight || position.x >= mWidth){ return; }
+    if(position.y < 0 || position.x < 0){ return; }
 
     std::cout<<"\033["<<position.y + 1<<";"<<(position.x * 2) + 1<<"H";
     std::cout<<"\033[48;2;"<<color.toString()<<"m  \033[0m";
