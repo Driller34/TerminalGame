@@ -1,12 +1,23 @@
 #include "Player.hpp"
 
-Player::Player(const Image& image)
-    : Mob(image)
+Player::Player(const Image& image,
+    const GameSettings& settings)
+    : Mob(image),
+    mGameSettings(settings)
 {}
 
 void Player::update()
 {
-    move(getMoveOffset());
+    Vec2i newPosition = getPosition() + getMoveOffset();
+    Vec2i size = getSize();
+
+    if(newPosition.x >= 0 
+        && newPosition.y >= 0
+        && newPosition.x + size.x < mGameSettings.width
+        && newPosition.y + size.y < mGameSettings.height)
+    {
+        setPosition(newPosition);
+    }
     setMoveOffset({0, 0});
 }
 

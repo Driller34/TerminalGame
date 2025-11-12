@@ -2,6 +2,7 @@
 #include <filesystem>
 #include <cstdlib>
 #include <chrono>
+#include <memory>
 #include "../GameSettings.hpp"
 #include "../GameObjects/Player.hpp"
 #include "../Core/Graphic/Window.hpp"
@@ -12,6 +13,7 @@
 #include "../Core/Utils/Clock.hpp"
 #include "../Core/Layers/LayerManager.hpp"
 #include "../Core/Layers/Layer.hpp"
+#include "../Core/Layers/PauseLayer.hpp"
 
 class GameLayer : public Layer
 {
@@ -53,6 +55,7 @@ private:
     LayerManager& mLayerManager;
     ResourceManager& mResourceManager;
     GameSettings mGameSettings;
+    bool mIsGameOver;
 
     Player mPlayer;
     std::vector<Mob> mAsteroids;

@@ -1,4 +1,5 @@
 #pragma once
+#include "../GameSettings.hpp"
 #include "../../Core/Utils/Vec.hpp"
 #include "Mob.hpp"
 
@@ -7,7 +8,8 @@ class Player : public Mob
 public:
     virtual ~Player() = default;
 
-    Player(const Image& image);
+    Player(const Image& image,
+        const GameSettings& settings);
     
     void update();
 
@@ -15,4 +17,7 @@ public:
     void moveDown();
     void moveLeft();
     void moveRigth();
+
+private:
+    GameSettings mGameSettings;
 };

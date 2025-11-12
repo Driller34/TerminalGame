@@ -12,6 +12,7 @@ set(HEADERS
     Utils/Input.hpp
     Layers/Layer.hpp
     Layers/LayerManager.hpp
+    Layers/PauseLayer.hpp
     Layers/MenuLayer.hpp
     Layers/LayerManager.hpp
     ResourceManager.hpp
@@ -26,6 +27,7 @@ set(SOURCES
     Layers/LayerManager.cpp
     ResourceManager.cpp
     Layers/MenuLayer.cpp
+    Layers/PauseLayer.cpp
 )
 
 add_library(Core STATIC)

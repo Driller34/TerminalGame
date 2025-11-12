@@ -7,7 +7,8 @@ GameLayer::GameLayer(LayerManager& layerManager,
     : mLayerManager(layerManager),
     mResourceManager(resourceManager),
     mGameSettings(settings),
-    mPlayer(mResourceManager.getImage("Images/spaceship.bmp")),
+    mIsGameOver(false),
+    mPlayer(mResourceManager.getImage("Images/spaceship.bmp"), mGameSettings),
     mAsteroids(mGameSettings.numAsteroids, 
         mResourceManager.getImage("Images/asteroid.bmp")),
     mAsteroidsClock()
@@ -18,12 +19,16 @@ GameLayer::GameLayer(LayerManager& layerManager,
 
 void GameLayer::init()
 {
+    mPlayer.setPosition(mGameSettings.playerStartPosition);
     mPlayer.setHp(mGameSettings.fullPlayerHp);
+    mIsGameOver = false;
     initAsteroids();
 }
 
 void GameLayer::update()
 {
+    if(mIsGameOver){ return; }
+
     mPlayer.update();
 
     playerColision();
@@ -40,6 +45,11 @@ void GameLayer::update()
 
 void GameLayer::draw(Window& window)
 {
+    if(mIsGameOver)
+    {
+        window.draw(mResourceManager.getImage("Images/gameover.bmp"));
+    }
+
     window.draw(mPlayer);
 
     for(Mob& asteroid : mAsteroids)
@@ -53,10 +63,7 @@ void GameLayer::draw(Window& window)
     }
 }
 
-void GameLayer::activateState() 
-{
-    mPlayer.setPosition(mGameSettings.playerStartPosition);
-}
+void GameLayer::activateState(){}
 
 void GameLayer::inputHandler(const char pressedKey)
 {
@@ -67,6 +74,15 @@ void GameLayer::inputHandler(const char pressedKey)
         case 'a': mPlayer.moveLeft(); break;
         case 'd': mPlayer.moveRigth(); break;
         case ' ': makeBullet(); break;
+        case 27: {
+            if(!mIsGameOver)
+            {
+                mLayerManager.push(std::make_unique<PauseLayer>(mLayerManager, mResourceManager));
+            }
+            else{ mLayerManager.pop(); }
+
+            break;
+        }
     }
 }
 
@@ -190,5 +206,5 @@ bool GameLayer::checkAsteroidFinish(const Mob& asteroid)
 
 void GameLayer::gameOver()
 {
-    mLayerManager.pop();
+    mIsGameOver = true;
 }
