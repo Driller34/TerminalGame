@@ -1,6 +1,7 @@
 set(HEADERS
     Utils/Color.hpp
     Utils/Vec.hpp
+    Utils/Clock.hpp
     Graphic/Image.hpp
     Loader/BMP.hpp
     Loader/BMPLoader.hpp
@@ -17,6 +18,7 @@ set(HEADERS
 )
 
 set(SOURCES
+    Utils/Clock.cpp
     Graphic/Window.cpp
     Graphic/Sprite.cpp
     Loader/BMP.cpp

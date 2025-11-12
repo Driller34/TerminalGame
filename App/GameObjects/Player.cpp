@@ -4,6 +4,12 @@ Player::Player(const Image& image)
     : Mob(image)
 {}
 
+void Player::update()
+{
+    move(getMoveOffset());
+    setMoveOffset({0, 0});
+}
+
 void Player::moveUp()
 {
     setMoveOffset(getMoveOffset() + Vec2i{0, -1});

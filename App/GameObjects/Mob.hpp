@@ -16,6 +16,11 @@ public:
     
     Vec2i getMoveOffset() const;
 
+    void setHp(const size_t hp);
+
+    size_t getHp() const;
+
 private:
     Vec2i mMoveOffset;
+    size_t mHp;
 };

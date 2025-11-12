@@ -9,6 +9,8 @@ public:
 
     Player(const Image& image);
     
+    void update();
+
     void moveUp();
     void moveDown();
     void moveLeft();

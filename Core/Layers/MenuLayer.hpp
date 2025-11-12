@@ -29,6 +29,7 @@ class MenuLayer : public Layer
 {
 public:
     MenuLayer(LayerManager& layerManager,
+        const Image& backgroundImage,
         const Vec2i& optionsPosition);
 
     virtual void init() override;
@@ -45,6 +46,7 @@ private:
 
 private:
     LayerManager& mLayerManager;
+    Image mBackgroundImage;
     Vec2i mOptionsPosition;
     size_t mSelectedOption;
     std::vector<MenuOption> mMenuOptions;

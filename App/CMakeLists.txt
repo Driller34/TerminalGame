@@ -1,4 +1,5 @@
 set(HEADERS
+    GameSettings.hpp
     Factory/Factory.hpp
     GameObjects/Mob.hpp
     GameObjects/Player.hpp

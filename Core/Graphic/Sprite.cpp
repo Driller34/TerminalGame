@@ -10,6 +10,14 @@ void Sprite::setImage(const Image& image)
     mImage = image;
 }
 
+Vec2i Sprite::getSize() const
+{
+    return {
+        mImage.width,
+        mImage.height
+    };
+}
+
 void Sprite::draw(Window& window,
     const Vec2i& position)
 {

@@ -1,8 +1,10 @@
 #include "MenuLayer.hpp"
 
 MenuLayer::MenuLayer(LayerManager& layerManager,
+    const Image& backgroundImage,
     const Vec2i& optionsPosition)
     : mLayerManager(layerManager),
+    mBackgroundImage(backgroundImage),
     mOptionsPosition(optionsPosition),
     mSelectedOption(0ULL)
 {
@@ -21,6 +23,8 @@ void MenuLayer::update()
 
 void MenuLayer::draw(Window& window)
 {
+    window.draw(mBackgroundImage);
+
     const size_t n = mMenuOptions.size();
     Vec2i currentPosition = mOptionsPosition;
     for(size_t i = 0ULL; i < n; i++)

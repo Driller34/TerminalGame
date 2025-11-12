@@ -1,6 +1,7 @@
 #pragma once
 #include <filesystem>
 #include "Factory/Factory.hpp"
+#include "GameSettings.hpp"
 #include "../Core/Graphic/Window.hpp"
 #include "../Core/ResourceManager.hpp"
 #include "../Core/Utils/Vec.hpp"
@@ -11,8 +12,7 @@
 class Game
 {
 public:
-    Game(const size_t width,
-        const size_t height);
+    Game(const GameSettings& settings);
 
     void run();
 
@@ -22,6 +22,7 @@ private:
     void inputHandler();
 
 private:
+    GameSettings mGameSettings;
     Window mWindow;
     LayerManager mLayerManager;
     ResourceManager mResourceManager;

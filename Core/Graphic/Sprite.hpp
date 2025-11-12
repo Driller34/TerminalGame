@@ -14,6 +14,8 @@ public:
 
     void setImage(const Image& image);
 
+    Vec2i getSize() const;
+
     virtual void draw(Window& window,
         const Vec2i& position) override;
     

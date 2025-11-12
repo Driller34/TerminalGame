@@ -1,5 +1,6 @@
 #pragma once
 #include <filesystem>
+#include "../GameSettings.hpp"
 #include "../Layers/GameLayer.hpp"
 #include "../../Core/Layers/LayerManager.hpp"
 #include "../../Core/Layers/MenuLayer.hpp"
@@ -10,5 +11,6 @@
 namespace Factory
 {
     std::unique_ptr<MenuLayer> makeMenu(LayerManager& layerManager,
-        ResourceManager& resourceManager);
+        ResourceManager& resourceManager,
+        const GameSettings& gameSettings);
 }
