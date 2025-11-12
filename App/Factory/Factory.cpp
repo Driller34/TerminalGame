@@ -7,8 +7,8 @@ namespace Factory
     {
         auto menuLayer = std::make_unique<MenuLayer>(layerManager, Vec2i{5, 10});
         
-        auto startImage = resourceManager.getImage("Resources/Images/start.bmp");
-        auto exitImage = resourceManager.getImage("Resources/Images/exit.bmp");
+        auto startImage = resourceManager.getImage("Images/start.bmp");
+        auto exitImage = resourceManager.getImage("Images/exit.bmp");
 
         menuLayer->addOption(MenuOption{
             startImage,

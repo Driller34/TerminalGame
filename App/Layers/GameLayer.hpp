@@ -1,5 +1,6 @@
 #pragma once
 #include <filesystem>
+#include "../GameObjects/Player.hpp"
 #include "../Core/Graphic/Window.hpp"
 #include "../Core/ResourceManager.hpp"
 #include "../Core/Utils/Vec.hpp"
@@ -23,4 +24,6 @@ public:
 private:
     LayerManager& mLayerManager;
     ResourceManager& mResourceManager;
+
+    Player mPlayer;
 };
