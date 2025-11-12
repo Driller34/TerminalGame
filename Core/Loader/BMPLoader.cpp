@@ -16,7 +16,7 @@ namespace BMPLoader
 
         const bool topDown = bmp.DIBHeader.height < 0;
         const size_t bytesPerPixel = bmp.DIBHeader.bitCount / 8;
-        const size_t rowSize = ((width * bytesPerPixel) / 4) * 4;
+        const size_t rowSize = ((width * bytesPerPixel + 3) / 4) * 4;
         const int row = topDown ? position.y : (height - 1 - position.y);
         const size_t index = row * rowSize + (position.x * bytesPerPixel);
 

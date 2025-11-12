@@ -1,5 +1,6 @@
 #pragma once
 #include <filesystem>
+#include "../Layers/GameLayer.hpp"
 #include "../../Core/Layers/LayerManager.hpp"
 #include "../../Core/Layers/MenuLayer.hpp"
 #include "../../Core/ResourceManager.hpp"

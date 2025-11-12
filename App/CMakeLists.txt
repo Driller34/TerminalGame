@@ -1,10 +1,12 @@
 set(HEADERS
     Factory/Factory.hpp
+    Layers/GameLayer.hpp
     Game.hpp
 )
 
 set(SOURCES
     Factory/Factory.cpp
+    Layers/GameLayer.cpp
     Game.cpp
     Main.cpp
 )
