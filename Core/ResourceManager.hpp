@@ -9,11 +9,9 @@ class ResourceManager
 public:
     ResourceManager(const std::filesystem::path& path);
 
-    void addResource(const std::filesystem::path& path);
-
     void addImage(const std::filesystem::path& path);
 
-    Image getImage(const std::filesystem::path& path) const;
+    Image getImage(const std::filesystem::path& path);
 
 private:
     std::filesystem::path mMainPath;

@@ -58,7 +58,7 @@ private:
 
 int main()
 {
-    Window window(30, 30);
+    Window window(100, 80);
     LayerManager manager;
 
     manager.push(std::make_unique<SandboxLayer>(manager));

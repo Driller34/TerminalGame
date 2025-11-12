@@ -1,9 +1,10 @@
-#include <iostream>
-#include "../Core/Graphic/Window.hpp"
-#include "../Core/Graphic/Sprite.hpp"
-#include "../Core/Utils/Input.hpp"
+#include <memory>
+#include "Game.hpp"
 
 int main()
 {
+    Game game(100, 80);
+    game.run();
+    
     return 0;
 }

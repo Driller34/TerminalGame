@@ -11,6 +11,8 @@ set(HEADERS
     Utils/Input.hpp
     Layers/Layer.hpp
     Layers/LayerManager.hpp
+    Layers/MenuLayer.hpp
+    Layers/LayerManager.hpp
     ResourceManager.hpp
 )
 
@@ -21,6 +23,7 @@ set(SOURCES
     Loader/BMPLoader.cpp
     Layers/LayerManager.cpp
     ResourceManager.cpp
+    Layers/MenuLayer.cpp
 )
 
 add_library(Core STATIC)

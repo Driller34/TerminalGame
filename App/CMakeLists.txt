@@ -1,5 +1,21 @@
+set(HEADERS
+    Factory/Factory.hpp
+    Game.hpp
+)
+
 set(SOURCES
+    Factory/Factory.cpp
+    Game.cpp
     Main.cpp
+)
+
+add_library(App STATIC)
+
+target_sources(App 
+    PRIVATE ${SOURCES}
+    PUBLIC FILE_SET HEADERS
+        BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}
+        FILES ${HEADERS}
 )
 
 add_executable(${CMAKE_PROJECT_NAME})

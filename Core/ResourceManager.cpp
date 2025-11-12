@@ -6,20 +6,13 @@ ResourceManager::ResourceManager(const std::filesystem::path& path)
 
 }
 
-void ResourceManager::addResource(const std::filesystem::path& path)
-{
-    if(path.extension() == ".bmp")
-    {
-        addImage(path);
-    }
-}
-
 void ResourceManager::addImage(const std::filesystem::path& path)
 {
     mImages.emplace(path, BMPLoader::loadBMP(mMainPath / path));
 }
 
-Image ResourceManager::getImage(const std::filesystem::path& path) const
+Image ResourceManager::getImage(const std::filesystem::path& path)
 {
+    if(!mImages.contains(path)){ addImage(path); }
     return mImages.at(path);
 }
