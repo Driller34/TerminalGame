@@ -1,6 +1,6 @@
 #pragma once
 #include <concepts>
-#include "Utils/Vec.hpp"
+#include "../Utils/Vec.hpp"
 
 class Window;
 

@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
 #include <concepts>
-#include "../Drawable.hpp"
-#include "../Transformable.hpp"
+#include "../Base/Drawable.hpp"
+#include "../Base/Transformable.hpp"
 #include "Image.hpp"
 #include "../Utils/Vec.hpp"
 #include "../Utils/Color.hpp"

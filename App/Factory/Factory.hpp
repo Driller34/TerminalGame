@@ -7,6 +7,7 @@
 #include "../../Core/ResourceManager.hpp"
 #include "../../Core/Graphic/Image.hpp"
 #include "../../Core/Utils/Color.hpp"
+#include "../../Core/Utils/Vec.hpp"
 
 namespace Factory
 {

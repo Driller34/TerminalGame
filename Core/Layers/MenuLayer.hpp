@@ -2,6 +2,7 @@
 #include <functional>
 #include "../Graphic/Image.hpp"
 #include "../Utils/Vec.hpp"
+#include "../Utils/Color.hpp"
 #include "LayerManager.hpp"
 #include "Layer.hpp"
 
@@ -9,19 +10,19 @@ struct MenuOption
 {
     Image image;
     Image selectedBackground;
-    std::function<void(LayerManager&)> onAction;
+    std::function<void()> onAction;
 
-    MenuOption(const Image& f,
-        const Image& b,
-        std::function<void(LayerManager&)> callback = nullptr)
-        : image(f),
-        selectedBackground(b),
+    MenuOption(const Image& img,
+        const Color& backgroundColor,
+        std::function<void()> callback = nullptr)
+        : image(img),
+        selectedBackground(Image(img.width, img.height, backgroundColor)),
         onAction(callback)
     {}
 
-    void action(LayerManager& layersManager)
+    void action()
     {
-        if(onAction){ onAction(layersManager); }
+        if(onAction){ onAction(); }
     }
 };
 

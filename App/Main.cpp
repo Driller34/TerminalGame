@@ -1,12 +1,22 @@
 #include <memory>
+#include <iostream>
 #include "Game.hpp"
 
 int main()
 {
-    Game game({100, 80, {42, 70}, 
-        100, 50, 10, 10, 
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    
+    Game game(GameSettings{Width{100}, 
+        Height{80}, 
+        Position{42, 70}, 
+        HP{100}, HP{50}, HP{10}, 10ULL, 
         std::chrono::milliseconds(500),
-        90, {10, 90}, {10, 100}});
+        FinishPoint{90}, 
+        SpawnRange{10, 90}, 
+        SpawnRange{10, 100}
+    });
+
     game.run();
     
     return 0;

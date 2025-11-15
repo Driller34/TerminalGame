@@ -9,23 +9,20 @@ namespace Factory
         auto menuLayer = std::make_unique<MenuLayer>(layerManager, 
             resourceManager.getImage("Images/MenuBackground.bmp"),
             Vec2i{35, 35});
-        
-        auto startImage = resourceManager.getImage("Images/start.bmp");
-        auto exitImage = resourceManager.getImage("Images/exit.bmp");
 
         menuLayer->addOption(MenuOption{
-            startImage,
-            Image(startImage.width, startImage.height, {0, 255, 0, 255}),
-            [&](LayerManager& layerManager){
+            resourceManager.getImage("Images/start.bmp"),
+            Color{0, 255, 0, 255},
+            [&](){
                 return layerManager.push(std::make_unique<GameLayer>(layerManager, 
                     resourceManager, 
                     gameSettings));
         }});
 
         menuLayer->addOption(MenuOption{
-            exitImage,
-            Image(exitImage.width, exitImage.height, {0, 255, 0, 255}),
-            [](LayerManager& layerManager){
+            resourceManager.getImage("Images/exit.bmp"),
+            Color{0, 255, 0, 255},
+            [&](){
                 return layerManager.pop();
         }});
 

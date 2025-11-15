@@ -1,4 +1,5 @@
 #include "Window.hpp"
+#include <stdio.h>
 
 Window::Window(const size_t width,
     const size_t height)
@@ -28,6 +29,7 @@ void Window::displayPoint(const Vec2i& position,
 
 void Window::display()
 {
+    std::cout<<"\033[?25l";
     for(size_t y = 0ULL; y < mViewImage.height; y++)
     {
         for(size_t x = 0ULL; x < mViewImage.width; x++)

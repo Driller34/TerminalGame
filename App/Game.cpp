@@ -32,7 +32,7 @@ void Game::render()
 
 void Game::inputHandler()
 {
-    auto input = Input::getKey();
+    std::optional<char> input = Input::getKey();
     if(input)
     {
         mLayerManager.inputHandler(input.value());

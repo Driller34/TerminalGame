@@ -27,6 +27,7 @@ void MenuLayer::draw(Window& window)
 
     const size_t n = mMenuOptions.size();
     Vec2i currentPosition = mOptionsPosition;
+    
     for(size_t i = 0ULL; i < n; i++)
     {
         if(i == mSelectedOption)
@@ -66,5 +67,5 @@ void MenuLayer::select(const size_t n)
 
 void MenuLayer::executeMenuOption()
 {
-    mMenuOptions[mSelectedOption].action(mLayerManager);
+    mMenuOptions[mSelectedOption].action();
 }

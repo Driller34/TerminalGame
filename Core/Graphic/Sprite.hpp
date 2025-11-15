@@ -1,7 +1,7 @@
 #pragma once
 #include "../Utils/Vec.hpp"
-#include "../Drawable.hpp"
-#include "../Transformable.hpp"
+#include "../Base/Drawable.hpp"
+#include "../Base/Transformable.hpp"
 #include "Window.hpp"
 
 

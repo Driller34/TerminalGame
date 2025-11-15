@@ -2,6 +2,13 @@
 #include <chrono>
 #include "../Core/Utils/Vec.hpp"
 
+using Width = size_t;
+using Height = size_t;
+using HP = size_t;
+using FinishPoint = int;
+using Position = Vec2i;
+using SpawnRange = Vec2i;
+
 struct GameSettings
 {
     size_t width;
