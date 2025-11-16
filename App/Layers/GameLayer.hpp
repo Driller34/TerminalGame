@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <chrono>
 #include <memory>
-#include "../GameSettings.hpp"
+#include "../Utils/GameSettings.hpp"
 #include "../GameObjects/Player.hpp"
 #include "../Core/Graphic/Window.hpp"
 #include "../Core/ResourceManager.hpp"
@@ -14,6 +14,7 @@
 #include "../Core/Layers/LayerManager.hpp"
 #include "../Core/Layers/Layer.hpp"
 #include "../Core/Layers/PauseLayer.hpp"
+#include "../SpaceInvader.hpp"
 
 class GameLayer : public Layer
 {
@@ -29,36 +30,8 @@ public:
     virtual void inputHandler(const char pressedKey) override;
 
 private:
-    
-    void updateAsteroids();
-    void updateBullets();
-
-    int randomInt(const Vec2i& range);
-
-    Vec2i randAsteroidPosition();
-    void initAsteroids();
-    void startAsteroid(Mob& asteroid);
-    bool checkColision(const Mob& asteroid);
-    bool checkColision(const Mob& a, 
-    const Mob& b) const;
-    bool checkAsteroidFinish(const Mob& asteroid);
-
-    void makeBullet();
-
-    void playerColision();
-    void bulletColision();
-
-    void gameOver();
-
-
-private:
     LayerManager& mLayerManager;
     ResourceManager& mResourceManager;
     GameSettings mGameSettings;
-    bool mIsGameOver;
-
-    Player mPlayer;
-    std::vector<Mob> mAsteroids;
-    std::vector<Mob> mBullets;
-    Clock mAsteroidsClock;
+    SpaceInvader mSpaceInvader;
 };

@@ -7,60 +7,24 @@ GameLayer::GameLayer(LayerManager& layerManager,
     : mLayerManager(layerManager),
     mResourceManager(resourceManager),
     mGameSettings(settings),
-    mIsGameOver(false),
-    mPlayer(mResourceManager.getImage("Images/spaceship.bmp"), mGameSettings),
-    mAsteroids(mGameSettings.numAsteroids, 
-        mResourceManager.getImage("Images/asteroid.bmp")),
-    mAsteroidsClock()
+    mSpaceInvader(mResourceManager, mGameSettings)
 {
-    srand(time(NULL));
     init();
 }
 
 void GameLayer::init()
 {
-    mPlayer.setPosition(mGameSettings.playerStartPosition);
-    mPlayer.setHp(mGameSettings.fullPlayerHp);
-    mIsGameOver = false;
-    initAsteroids();
+    
 }
 
 void GameLayer::update()
 {
-    if(mIsGameOver){ return; }
-
-    mPlayer.update();
-
-    playerColision();
-    bulletColision();
-
-    updateAsteroids();
-    updateBullets();
-
-    if(mPlayer.getHp() <= 0)
-    {
-        gameOver();
-    }
+    mSpaceInvader.update();
 }
 
 void GameLayer::draw(Window& window)
 {
-    if(mIsGameOver)
-    {
-        window.draw(mResourceManager.getImage("Images/gameover.bmp"));
-    }
-
-    window.draw(mPlayer);
-
-    for(Mob& asteroid : mAsteroids)
-    {
-        window.draw(asteroid);
-    }
-
-    for(Mob& bullet : mBullets)
-    {
-        window.draw(bullet);
-    }
+    window.draw(mSpaceInvader);
 }
 
 void GameLayer::activateState(){}
@@ -69,142 +33,20 @@ void GameLayer::inputHandler(const char pressedKey)
 {
     switch(pressedKey)
     {
-        case 'w': mPlayer.moveUp(); break;
-        case 's': mPlayer.moveDown(); break;
-        case 'a': mPlayer.moveLeft(); break;
-        case 'd': mPlayer.moveRigth(); break;
-        case ' ': makeBullet(); break;
+        case 'w': mSpaceInvader.moveUp(); break;
+        case 's': mSpaceInvader.moveDown(); break;
+        case 'a': mSpaceInvader.moveLeft(); break;
+        case 'd': mSpaceInvader.moveRight(); break;
+        case ' ': mSpaceInvader.fire(); break;
         case 27: {
-            if(!mIsGameOver)
+            if(!mSpaceInvader.isGameOver())
             {
-                mLayerManager.push(std::make_unique<PauseLayer>(mLayerManager, mResourceManager));
+                mLayerManager.push(
+                    std::make_unique<PauseLayer>(mLayerManager, mResourceManager));
             }
             else{ mLayerManager.pop(); }
 
             break;
         }
     }
-}
-
-void GameLayer::updateAsteroids()
-{
-    if(mAsteroidsClock.elapsedTime() >= std::chrono::milliseconds(500))
-    {
-        for(Mob& asteroid : mAsteroids)
-        {
-            asteroid.update();
-            if(checkAsteroidFinish(asteroid))
-            {
-                startAsteroid(asteroid);
-                mPlayer.setHp(mPlayer.getHp() - mGameSettings.hpWhenAsteridFinish);
-            }
-        }
-
-        mAsteroidsClock.restart();
-    }
-}
-
-void GameLayer::updateBullets()
-{
-    for(Mob& bullet : mBullets)
-    {
-        bullet.update();
-    }
-}
-
-void GameLayer::playerColision()
-{
-    for(Mob& asteroid : mAsteroids)
-    {
-        if(checkColision(asteroid))
-        {
-            mPlayer.setHp(mPlayer.getHp() - mGameSettings.hpWhenCollision);
-            startAsteroid(asteroid);
-        }
-    }
-}
-
-void GameLayer::bulletColision()
-{
-    for(Mob& bullet : mBullets)
-    {
-        for(Mob& asteroid : mAsteroids)
-        {
-            if(checkColision(asteroid, bullet))
-            {
-                startAsteroid(asteroid);
-            }
-        }   
-    }
-}
-
-void GameLayer::makeBullet()
-{
-    mBullets.emplace_back(Image(1, 1, {255, 0, 0, 255}));
-    mBullets.back().setMoveOffset({0, -1});
-    mBullets.back().setPosition(mPlayer.getPosition());
-}
-
-int GameLayer::randomInt(const Vec2i& range)
-{
-    return range.x + rand() % (range.y + 1 - range.x);
-}
-
-Vec2i GameLayer::randAsteroidPosition()
-{
-    return {
-        randomInt(mGameSettings.spawnXRange),
-        -randomInt(mGameSettings.spawnYRange)
-    };
-}
-
-void GameLayer::initAsteroids()
-{
-    for(Mob& asteroid : mAsteroids)
-    {
-        startAsteroid(asteroid);
-        asteroid.setMoveOffset({0, 1});
-    }
-}
-
-void GameLayer::startAsteroid(Mob& asteroid)
-{
-    asteroid.setPosition(randAsteroidPosition());
-}
-
-bool GameLayer::checkColision(const Mob& asteroid)
-{
-    const Vec2i posA = mPlayer.getPosition();
-    const Vec2i sizeA = mPlayer.getSize();
-    const Vec2i posB = asteroid.getPosition();
-    const Vec2i sizeB = asteroid.getSize();
-
-    return (posA.x < posB.x + sizeB.x &&
-            posA.x + sizeA.x > posB.x &&
-            posA.y < posB.y + sizeB.y &&
-            posA.y + sizeA.y > posB.y);
-}
-
-bool GameLayer::checkColision(const Mob& a, 
-    const Mob& b) const
-{
-    const Vec2i posA = a.getPosition();
-    const Vec2i sizeA = a.getSize();
-    const Vec2i posB = b.getPosition();
-    const Vec2i sizeB = b.getSize();
-
-    return (posA.x < posB.x + sizeB.x &&
-            posA.x + sizeA.x > posB.x &&
-            posA.y < posB.y + sizeB.y &&
-            posA.y + sizeA.y > posB.y);
-}
-
-bool GameLayer::checkAsteroidFinish(const Mob& asteroid)
-{
-    return asteroid.getPosition().y == mGameSettings.asteroidFinishPoint;
-}
-
-void GameLayer::gameOver()
-{
-    mIsGameOver = true;
 }

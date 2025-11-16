@@ -1,8 +1,9 @@
 set(HEADERS
-    GameSettings.hpp
+    Utils/GameSettings.hpp
     Factory/Factory.hpp
     GameObjects/Mob.hpp
     GameObjects/Player.hpp
+    SpaceInvader.hpp
     Layers/GameLayer.hpp
     Game.hpp
 )
@@ -11,6 +12,7 @@ set(SOURCES
     Factory/Factory.cpp
     GameObjects/Mob.cpp
     GameObjects/Player.cpp
+    SpaceInvader.cpp
     Layers/GameLayer.cpp
     Game.cpp
     Main.cpp

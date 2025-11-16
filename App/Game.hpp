@@ -1,7 +1,7 @@
 #pragma once
 #include <filesystem>
 #include "Factory/Factory.hpp"
-#include "GameSettings.hpp"
+#include "Utils/GameSettings.hpp"
 #include "../Core/Graphic/Window.hpp"
 #include "../Core/ResourceManager.hpp"
 #include "../Core/Utils/Vec.hpp"

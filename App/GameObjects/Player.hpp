@@ -1,5 +1,5 @@
 #pragma once
-#include "../GameSettings.hpp"
+#include "../Utils/GameSettings.hpp"
 #include "../../Core/Utils/Vec.hpp"
 #include "Mob.hpp"
 
