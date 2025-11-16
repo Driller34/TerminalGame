@@ -7,6 +7,7 @@ set(HEADERS
     Loader/BMPLoader.hpp
     Base/Drawable.hpp
     Base/Transformable.hpp
+    GUI/Rectangle.hpp
     Graphic/Window.hpp
     Graphic/Sprite.hpp
     Utils/Input.hpp
@@ -20,6 +21,7 @@ set(HEADERS
 
 set(SOURCES
     Utils/Clock.cpp
+    GUI/Rectangle.cpp
     Graphic/Window.cpp
     Graphic/Sprite.cpp
     Loader/BMP.cpp

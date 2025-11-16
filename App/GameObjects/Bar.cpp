@@ -3,7 +3,8 @@
 Bar::Bar(const size_t width,
         const size_t height,
         const int maxValue)
-    : mMaxValue(maxValue)
+    : Sprite(, Vec2i{0,0}),
+    mMaxValue(maxValue)
 {
 
 }

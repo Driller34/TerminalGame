@@ -13,7 +13,6 @@ Window::Window(const size_t width,
 void Window::clear()
 {
     mViewImage.clear();
-    display();
 }
 
 void Window::displayPoint(const Vec2i& position,
