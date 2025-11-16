@@ -12,6 +12,5 @@
 namespace Factory
 {
     std::unique_ptr<MenuLayer> makeMenu(LayerManager& layerManager,
-        ResourceManager& resourceManager,
-        const GameSettings& gameSettings);
+        ResourceManager& resourceManager);
 }

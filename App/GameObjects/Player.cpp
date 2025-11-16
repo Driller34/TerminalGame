@@ -12,9 +12,7 @@ void Player::update()
     Vec2i size = getSize();
 
     if(newPosition.x >= 0 
-        && newPosition.y >= 0
-        && newPosition.x + size.x < mGameSettings.width
-        && newPosition.y + size.y < mGameSettings.height)
+        && newPosition.y >= 0)
     {
         setPosition(newPosition);
     }

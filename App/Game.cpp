@@ -1,11 +1,11 @@
 #include "Game.hpp"
 
-Game::Game(const GameSettings& settings)
-    : mGameSettings(settings),
-    mWindow(mGameSettings.width, mGameSettings.height),
+Game::Game(const size_t width,
+        const size_t height)
+    : mWindow(width, height),
     mResourceManager(std::filesystem::path(PROJECT_ROOT_DIR ) / "Resources")
 {
-    mLayerManager.push(Factory::makeMenu(mLayerManager, mResourceManager, mGameSettings));
+    mLayerManager.push(Factory::makeMenu(mLayerManager, mResourceManager));
 }
 
 void Game::run()

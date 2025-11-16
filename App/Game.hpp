@@ -12,7 +12,8 @@
 class Game
 {
 public:
-    Game(const GameSettings& settings);
+    Game(const size_t width,
+        const size_t height);
 
     void run();
 
@@ -22,7 +23,6 @@ private:
     void inputHandler();
 
 private:
-    GameSettings mGameSettings;
     Window mWindow;
     LayerManager mLayerManager;
     ResourceManager mResourceManager;

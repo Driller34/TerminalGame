@@ -11,9 +11,6 @@ using SpawnRange = Vec2i;
 
 struct GameSettings
 {
-    size_t width;
-    size_t height;
-
     Vec2i playerStartPosition;
 
     size_t fullPlayerHp;

@@ -3,8 +3,7 @@
 namespace Factory
 {
     std::unique_ptr<MenuLayer> makeMenu(LayerManager& layerManager,
-        ResourceManager& resourceManager,
-        const GameSettings& gameSettings)
+        ResourceManager& resourceManager)
     {
         auto menuLayer = std::make_unique<MenuLayer>(layerManager, 
             resourceManager.getImage("Images/MenuBackground.bmp"),
@@ -16,7 +15,16 @@ namespace Factory
             [&](){
                 return layerManager.push(std::make_unique<GameLayer>(layerManager, 
                     resourceManager, 
-                    gameSettings));
+
+                    GameSettings{
+                        Position{42, 70}, 
+                        HP{100}, HP{50}, HP{10}, 10ULL, 
+                        std::chrono::milliseconds(500),
+                        FinishPoint{90}, 
+                        SpawnRange{10, 90}, 
+                        SpawnRange{10, 100}
+                    }
+            ));
         }});
 
         menuLayer->addOption(MenuOption{
