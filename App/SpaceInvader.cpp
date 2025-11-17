@@ -8,19 +8,22 @@ SpaceInvader::SpaceInvader(ResourceManager& resourceManager,
     mPlayer(mResourceManager.getImage("Images/spaceship.bmp"), mGameSettings),
     mAsteroids(mGameSettings.numAsteroids, 
         mResourceManager.getImage("Images/asteroid.bmp")),
-    mAsteroidsClock()
+    mAsteroidsClock(),
+    mHpBar(100, 2, mGameSettings.fullPlayerHp)
 {
     srand(time(NULL));
 
     mPlayer.setPosition(mGameSettings.playerStartPosition);
     mPlayer.setHp(mGameSettings.fullPlayerHp);
-    mIsGameOver = false;
+
     initAsteroids();
 }
 
 void SpaceInvader::update()
 {
     if(mIsGameOver){ return; }
+
+    mHpBar.setValue(mPlayer.getHp());
 
     mPlayer.update();
 
@@ -55,6 +58,8 @@ void SpaceInvader::draw(Window& renderTarger,
     {
         renderTarger.draw(bullet);
     }
+
+    renderTarger.draw(mHpBar);
 }
 
 bool SpaceInvader::isGameOver() const

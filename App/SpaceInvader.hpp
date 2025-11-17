@@ -11,6 +11,7 @@
 #include "../Core/Utils/Color.hpp"
 #include "../Core/Utils/Clock.hpp"
 #include "../Core/Base/Drawable.hpp"
+#include "../Core/GUI/ProgressBar.hpp"
 #include "Utils/GameSettings.hpp"
 
 class SpaceInvader : public Drawable
@@ -60,4 +61,5 @@ private:
     std::vector<Mob> mAsteroids;
     std::vector<Mob> mBullets;
     Clock mAsteroidsClock;
+    gui::ProgressBar mHpBar;
 };
