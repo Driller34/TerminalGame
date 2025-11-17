@@ -24,7 +24,7 @@ void Rectangle::setSize(const Vec2ull& size)
 void Rectangle::draw(Window& renderTarger, 
         const Vec2i& position)
 {
-    const Vec2i offset = getPosition();
+    const Vec2i offset = position;
 
     for(int i = 0; i < mWidth; i++)
     {
