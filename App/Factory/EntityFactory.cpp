@@ -11,6 +11,7 @@ namespace Factory
         
         world.getEntity(id).position = settings.playerStartPosition;
         world.getEntity(id).hp = settings.fullPlayerHp;
+        world.getEntity(id).isActive = true;
 
         return id;
     }

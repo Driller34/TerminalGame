@@ -18,7 +18,7 @@ struct Entity
         position({0, 0}),
         moveOffset({0, 0}),
         hp(100ULL),
-        isActive(true)
+        isActive(false)
     {}
 
     EntityType type;

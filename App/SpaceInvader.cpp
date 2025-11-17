@@ -10,6 +10,7 @@ SpaceInvader::SpaceInvader(ResourceManager& resourceManager,
 {
     srand(time(NULL));
     Factory::createAsteroids(mWorld, mGameSettings, resourceManager);
+    ecs_system::initAsteroids(mWorld, mGameSettings);
 
 }
 
@@ -17,7 +18,10 @@ void SpaceInvader::update()
 {
     if(mIsGameOver){ return; }
 
+    ecs_system::initAsteroids(mWorld, mGameSettings);
+    ecs_system::moveAsteroids(mWorld, mGameSettings);
     ecs_system::move(mWorld);
+    ecs_system::asteroidFinish(mWorld, mGameSettings);
 
     if(mWorld.getEntity(mPlayerID).hp <= 0)
     {

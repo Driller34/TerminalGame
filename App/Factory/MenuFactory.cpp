@@ -19,10 +19,10 @@ namespace Factory
                     GameSettings{
                         Position{42, 70}, 
                         HP{100}, HP{50}, HP{10}, 10ULL, 
-                        std::chrono::milliseconds(500),
+                        std::chrono::milliseconds(200),
                         FinishPoint{90}, 
                         SpawnRange{10, 90}, 
-                        SpawnRange{10, 100}
+                        SpawnRange{-10, -100}
                     }
             ));
         }});

@@ -2,6 +2,7 @@ set(HEADERS
     Utils/Color.hpp
     Utils/Vec.hpp
     Utils/Clock.hpp
+    Utils/RNG.hpp
     Graphic/Image.hpp
     Loader/BMP.hpp
     Loader/BMPLoader.hpp
@@ -24,6 +25,7 @@ set(HEADERS
 
 set(SOURCES
     Utils/Clock.cpp
+    Utils/RNG.cpp
     GUI/Rectangle.cpp
     GUI/ProgressBar.cpp
     ECS/World.cpp

@@ -15,6 +15,7 @@
 #include "../Core/ECS/World.hpp"
 #include "../Core/ECS/Entity.hpp"
 #include "../Core/ECS/System.hpp"
+#include "System.hpp"
 #include "Utils/GameSettings.hpp"
 #include "Factory/EntityFactory.hpp"
 
@@ -36,7 +37,6 @@ public:
     void moveRight();
 
 private:
-
     void gameOver();
 
 private:

@@ -4,6 +4,7 @@ set(HEADERS
     Factory/EntityFactory.hpp
     GameObjects/Mob.hpp
     GameObjects/Player.hpp
+    System.hpp
     SpaceInvader.hpp
     Layers/GameLayer.hpp
     Game.hpp
@@ -14,6 +15,7 @@ set(SOURCES
     Factory/EntityFactory.cpp
     GameObjects/Mob.cpp
     GameObjects/Player.cpp
+    System.cpp
     SpaceInvader.cpp
     Layers/GameLayer.cpp
     Game.cpp

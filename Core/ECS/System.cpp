@@ -7,6 +7,7 @@ void render(World& world,
 {
     for(Entity& entity : world.getEntities())
     {
+        if(!entity.isActive){ continue; }
         renderTarget.draw(entity.sprite, entity.position);
     }
 }
@@ -15,6 +16,7 @@ void move(World& world)
 {
     for(Entity& entity : world.getEntities())
     {
+        if(!entity.isActive){ continue; }
         entity.position += entity.moveOffset;
         entity.moveOffset = {0, 0};
     }
