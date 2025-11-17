@@ -7,7 +7,7 @@
 
 namespace Factory
 {
-    Entity& createPlayer(World& world,
+    EntityID createPlayer(World& world,
         const GameSettings& settings,
         ResourceManager& resourceManager);
 

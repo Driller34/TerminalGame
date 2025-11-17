@@ -2,17 +2,17 @@
 
 namespace Factory
 {
-    Entity& createPlayer(World& world,
+    EntityID createPlayer(World& world,
         const GameSettings& settings,
         ResourceManager& resourceManager)
     {
-        Entity& entity = world.create(EntityType::PLAYER,
+        EntityID id = world.create(EntityType::PLAYER,
             Sprite(resourceManager.getImage("Images/spaceship.bmp"), {0, 0}));
         
-        entity.position = settings.playerStartPosition;
-        entity.hp = settings.fullPlayerHp;
+        world.getEntity(id).position = settings.playerStartPosition;
+        world.getEntity(id).hp = settings.fullPlayerHp;
 
-        return entity;
+        return id;
     }
 
     void createAsteroids(World& world,
@@ -21,7 +21,7 @@ namespace Factory
     {
         for(size_t i = 0; i < settings.numAsteroids; i++)
         {
-            Entity& asteroid = world.create(EntityType::ASTEROID,
+            EntityID id = world.create(EntityType::ASTEROID,
                 Sprite(resourceManager.getImage("Images/asteroid.bmp"), {0, 0}));
 
             

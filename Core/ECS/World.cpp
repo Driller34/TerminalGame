@@ -3,11 +3,11 @@
 World::World()
 {}
 
-Entity& World::create(const EntityType type,
+EntityID World::create(const EntityType type,
         const Sprite& sprite)
 {
     mEntities.push_back(Entity(type, sprite));
-    return mEntities.back();
+    return mEntities.size() - 1;
 }
 
 std::vector<Entity>& World::getEntities()
@@ -15,12 +15,12 @@ std::vector<Entity>& World::getEntities()
     return mEntities;
 }
 
-Entity& World::getEntity(const EntityId id)
+Entity& World::getEntity(const EntityID id)
 {
     return mEntities[id];
 }
 
-const Entity& World::getEntity(const EntityId id) const
+const Entity& World::getEntity(const EntityID id) const
 {
     return mEntities[id];
 }

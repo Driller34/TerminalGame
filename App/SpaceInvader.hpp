@@ -45,6 +45,6 @@ private:
     bool mIsGameOver;
 
     World mWorld;
-    Entity& mPlayer;
+    EntityID mPlayerID;
     gui::ProgressBar mHpBar;
 };

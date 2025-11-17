@@ -5,7 +5,7 @@ SpaceInvader::SpaceInvader(ResourceManager& resourceManager,
     : mResourceManager(resourceManager),
     mGameSettings(settings),
     mIsGameOver(false),
-    mPlayer(Factory::createPlayer(mWorld, mGameSettings, resourceManager)),
+    mPlayerID(Factory::createPlayer(mWorld, mGameSettings, resourceManager)),
     mHpBar(100, 2, mGameSettings.fullPlayerHp)
 {
     srand(time(NULL));
@@ -19,7 +19,7 @@ void SpaceInvader::update()
 
     ecs_system::move(mWorld);
 
-    if(mPlayer.hp <= 0)
+    if(mWorld.getEntity(mPlayerID).hp <= 0)
     {
         gameOver();
     }
@@ -49,22 +49,22 @@ void SpaceInvader::fire()
 
 void SpaceInvader::moveUp()
 {
-    mPlayer.moveOffset += {0, -1};
+    mWorld.getEntity(mPlayerID).moveOffset += {0, -1};
 }
 
 void SpaceInvader::moveDown()
 {
-    mPlayer.moveOffset += {0, 1};
+    mWorld.getEntity(mPlayerID).moveOffset += {0, 1};
 }
 
 void SpaceInvader::moveLeft()
 {
-    mPlayer.moveOffset += {-1, 0};
+    mWorld.getEntity(mPlayerID).moveOffset += {-1, 0};
 }
 
 void SpaceInvader::moveRight()
 {
-    mPlayer.moveOffset += {1, 0};
+    mWorld.getEntity(mPlayerID).moveOffset += {1, 0};
 }
 
 void SpaceInvader::gameOver()
