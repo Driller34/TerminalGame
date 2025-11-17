@@ -1,6 +1,7 @@
 set(HEADERS
     Utils/GameSettings.hpp
-    Factory/Factory.hpp
+    Factory/MenuFactory.hpp
+    Factory/EntityFactory.hpp
     GameObjects/Mob.hpp
     GameObjects/Player.hpp
     SpaceInvader.hpp
@@ -9,7 +10,8 @@ set(HEADERS
 )
 
 set(SOURCES
-    Factory/Factory.cpp
+    Factory/MenuFactory.cpp
+    Factory/EntityFactory.cpp
     GameObjects/Mob.cpp
     GameObjects/Player.cpp
     SpaceInvader.cpp

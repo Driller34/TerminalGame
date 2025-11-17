@@ -1,5 +1,4 @@
 #pragma once
-
 #include <termios.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -22,7 +21,7 @@ namespace Input
         fcntl(STDIN_FILENO, F_SETFL, flags | O_NONBLOCK);
 
         char buffor = 0;
-        int n = read(STDIN_FILENO, &buffor, 1);
+        int n = read(STDIN_FILENO, &buffor, sizeof(buffor));
 
         tcsetattr(STDIN_FILENO, TCSANOW, &oldSettings);
         fcntl(STDIN_FILENO, F_SETFL, flags);

@@ -12,7 +12,11 @@
 #include "../Core/Utils/Clock.hpp"
 #include "../Core/Base/Drawable.hpp"
 #include "../Core/GUI/ProgressBar.hpp"
+#include "../Core/ECS/World.hpp"
+#include "../Core/ECS/Entity.hpp"
+#include "../Core/ECS/System.hpp"
 #include "Utils/GameSettings.hpp"
+#include "Factory/EntityFactory.hpp"
 
 class SpaceInvader : public Drawable
 {
@@ -32,23 +36,6 @@ public:
     void moveRight();
 
 private:
-    void updateAsteroids();
-    void updateBullets();
-
-    int randomInt(const Vec2i& range);
-
-    Vec2i randAsteroidPosition();
-    void initAsteroids();
-    void startAsteroid(Mob& asteroid);
-    bool checkColision(const Mob& asteroid);
-    bool checkColision(const Mob& a, 
-    const Mob& b) const;
-    bool checkAsteroidFinish(const Mob& asteroid);
-
-    void makeBullet();
-
-    void playerColision();
-    void bulletColision();
 
     void gameOver();
 
@@ -57,9 +44,7 @@ private:
     GameSettings mGameSettings;
     bool mIsGameOver;
 
-    Player mPlayer;
-    std::vector<Mob> mAsteroids;
-    std::vector<Mob> mBullets;
-    Clock mAsteroidsClock;
+    World mWorld;
+    Entity& mPlayer;
     gui::ProgressBar mHpBar;
 };

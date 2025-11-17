@@ -1,6 +1,5 @@
 #include "GameLayer.hpp"
 
-
 GameLayer::GameLayer(LayerManager& layerManager,
     ResourceManager& resourceManager,
     const GameSettings& settings)

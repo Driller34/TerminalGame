@@ -1,6 +1,6 @@
 #pragma once
 #include <filesystem>
-#include "Factory/Factory.hpp"
+#include "Factory/MenuFactory.hpp"
 #include "Utils/GameSettings.hpp"
 #include "../Core/Graphic/Window.hpp"
 #include "../Core/ResourceManager.hpp"
