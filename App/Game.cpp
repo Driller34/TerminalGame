@@ -3,7 +3,8 @@
 Game::Game(const size_t width,
         const size_t height)
     : mWindow(width, height),
-    mResourceManager(std::filesystem::path(PROJECT_ROOT_DIR ) / "Resources")
+    mResourceManager(std::filesystem::path(PROJECT_ROOT_DIR ) / "Resources"),
+    mInputHandler()
 {
     mLayerManager.push(Factory::makeMenu(mLayerManager, mResourceManager));
 }
@@ -32,7 +33,8 @@ void Game::render()
 
 void Game::inputHandler()
 {
-    std::optional<char> input = Input::getKey();
+    const std::optional<char> input = mInputHandler.getKey();
+
     if(input)
     {
         mLayerManager.inputHandler(input.value());

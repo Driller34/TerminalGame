@@ -28,12 +28,9 @@ void InputHandler::enableRawMode()
     sIsRawModeEnabled = true;
 
     tcgetattr(STDIN_FILENO, &mSavedTerminal);
-    mSavedFlags = fcntl(STDIN_FILENO, F_GETFL);
 
     termios raw = makeRaw(mSavedTerminal);
     applyTerminalSettings(raw);
-
-    fcntl(STDIN_FILENO, F_SETFL, mSavedFlags | O_NONBLOCK);
 }
 
 void InputHandler::disableRawMode()
@@ -43,7 +40,6 @@ void InputHandler::disableRawMode()
     sIsRawModeEnabled = false;
 
     applyTerminalSettings(mSavedTerminal);
-    fcntl(STDIN_FILENO, F_SETFL, mSavedFlags);
 }
 
 void InputHandler::applyTerminalSettings(const termios& settings)

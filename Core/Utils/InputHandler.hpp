@@ -23,5 +23,4 @@ private:
     static bool sIsRawModeEnabled;
 
     termios mSavedTerminal;
-    int mSavedFlags;
 };

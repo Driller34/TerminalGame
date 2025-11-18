@@ -5,7 +5,7 @@
 #include "../Core/Graphic/Window.hpp"
 #include "../Core/ResourceManager.hpp"
 #include "../Core/Utils/Vec.hpp"
-#include "../Core/Utils/Input.hpp"
+#include "../Core/Utils/InputHandler.hpp"
 #include "../Core/Layers/LayerManager.hpp"
 #include "../Core/Layers/Layer.hpp"
 
@@ -26,4 +26,5 @@ private:
     Window mWindow;
     LayerManager mLayerManager;
     ResourceManager mResourceManager;
+    InputHandler mInputHandler;
 };
