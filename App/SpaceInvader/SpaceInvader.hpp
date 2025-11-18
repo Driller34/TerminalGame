@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <chrono>
 #include <memory>
-#include "../GameObjects/Player.hpp"
 #include "../../Core/Graphic/Window.hpp"
 #include "../../Core/ResourceManager.hpp"
 #include "../../Core/Utils/Vec.hpp"
@@ -12,10 +11,9 @@
 #include "../../Core/Utils/Clock.hpp"
 #include "../../Core/Base/Drawable.hpp"
 #include "../../Core/GUI/ProgressBar.hpp"
-#include "../../Core/ECS/World.hpp"
-#include "../../Core/ECS/Entity.hpp"
-#include "../../Core/ECS/System.hpp"
-#include "System.hpp"
+#include "World.hpp"
+#include "Entities/Entity.hpp"
+#include "Systems/System.hpp"
 #include "../Utils/GameSettings.hpp"
 #include "../Factory/EntityFactory.hpp"
 
@@ -26,8 +24,10 @@ public:
         const GameSettings& settings);
 
     void update();
+
     virtual void draw(Window& renderTarger, 
         const Vec2i& position) override;
+        
     bool isGameOver() const;
     
     void fire();
@@ -45,6 +45,5 @@ private:
     bool mIsGameOver;
 
     World mWorld;
-    EntityID mPlayerID;
     gui::ProgressBar mHpBar;
 };

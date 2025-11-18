@@ -1,13 +1,13 @@
 #pragma once
-#include "../../Core/ECS/World.hpp"
-#include "../../Core/ECS/Entity.hpp"
-#include "../../Core/ECS/System.hpp"
+#include "../SpaceInvader/World.hpp"
+#include "../SpaceInvader/Entities/Entity.hpp"
+#include "../SpaceInvader/Entities/Player.hpp"
 #include "../../Core/ResourceManager.hpp"
 #include "../Utils/GameSettings.hpp"
 
 namespace Factory
 {
-    EntityID createPlayer(World& world,
+    Player createPlayer(World& world,
         const GameSettings& settings,
         ResourceManager& resourceManager);
 

@@ -4,7 +4,6 @@
 #include <chrono>
 #include <memory>
 #include "../Utils/GameSettings.hpp"
-#include "../GameObjects/Player.hpp"
 #include "../Core/Graphic/Window.hpp"
 #include "../Core/ResourceManager.hpp"
 #include "../Core/Utils/Vec.hpp"

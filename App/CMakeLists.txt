@@ -1,23 +1,17 @@
-set(HEADERS
-    Utils/GameSettings.hpp
-    Factory/MenuFactory.hpp
-    Factory/EntityFactory.hpp
-    GameObjects/Mob.hpp
-    GameObjects/Player.hpp
-    SpaceInvader/System.hpp
-    SpaceInvader/SpaceInvader.hpp
-    Layers/GameLayer.hpp
+file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS
+    Utils/*.hpp
+    Factory/*.hpp
+    GameObjects/*.hpp
+    SpaceInvader/*.hpp
+    Layers/*.hpp
     Game.hpp
 )
 
-set(SOURCES
-    Factory/MenuFactory.cpp
-    Factory/EntityFactory.cpp
-    GameObjects/Mob.cpp
-    GameObjects/Player.cpp
-    SpaceInvader/System.cpp
-    SpaceInvader/SpaceInvader.cpp
-    Layers/GameLayer.cpp
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
+    Factory/*.cpp
+    GameObjects/*.cpp
+    SpaceInvader/*.cpp
+    Layers/*.cpp
     Game.cpp
     Main.cpp
 )

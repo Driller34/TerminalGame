@@ -1,6 +1,7 @@
 #pragma once
 #include <functional>
 #include "../Graphic/Image.hpp"
+#include "../GUI/Rectangle.hpp"
 #include "../Utils/Vec.hpp"
 #include "../Utils/Color.hpp"
 #include "LayerManager.hpp"
@@ -9,14 +10,14 @@
 struct MenuOption
 {
     Image image;
-    Image selectedBackground;
+    gui::Rectangle selectedBackground;
     std::function<void()> onAction;
 
     MenuOption(const Image& img,
         const Color& backgroundColor,
         std::function<void()> callback = nullptr)
         : image(img),
-        selectedBackground(Image(img.width, img.height, backgroundColor)),
+        selectedBackground(gui::Rectangle(img.width, img.height, backgroundColor)),
         onAction(callback)
     {}
 

@@ -12,8 +12,6 @@ set(HEADERS
     Base/Transformable.hpp
     GUI/Rectangle.hpp
     GUI/ProgressBar.hpp
-    ECS/World.hpp
-    ECS/System.hpp
     Graphic/Window.hpp
     Graphic/Sprite.hpp
     Layers/Layer.hpp
@@ -30,8 +28,6 @@ set(SOURCES
     Utils/InputHandler.cpp
     GUI/Rectangle.cpp
     GUI/ProgressBar.cpp
-    ECS/World.cpp
-    ECS/System.cpp
     Graphic/Window.cpp
     Graphic/Sprite.cpp
     Loader/BMP.cpp

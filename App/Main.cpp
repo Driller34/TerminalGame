@@ -1,6 +1,3 @@
-#include <memory>
-#include <iostream>
-#include <termios.h>
 #include "Game.hpp"
 
 int main()
