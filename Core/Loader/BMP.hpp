@@ -2,6 +2,8 @@
 #include <cstdint>
 #include <vector>
 #include <istream>
+#include "../Utils/Color.hpp"
+#include "../Utils/Vec.hpp"
 
 #pragma pack(push, 1)
 struct BMPHeader
@@ -45,6 +47,8 @@ struct BMP
     BMPHeader header;
     BMPDIBHeader DIBHeader;
     std::vector<uint8_t> colorArray;
+
+    Color getColor(const Vec2i& position) const;
 };
 
 std::istream& operator>>(std::istream& is, 

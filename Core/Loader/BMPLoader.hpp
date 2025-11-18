@@ -10,9 +10,6 @@
 
 namespace BMPLoader
 {
-    Color getColor(const Vec2i& position,
-        const BMP& bmp);
-
     Image bmpToImage(const BMP& bmp);
 
     Image loadBMP(const std::filesystem::path& path);
