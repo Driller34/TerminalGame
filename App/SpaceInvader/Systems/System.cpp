@@ -71,4 +71,69 @@ void initAsteroids(World& world,
     }
 }
 
+void moveBullets(World& world,
+    const GameSettings& settings)
+{
+    for(Bullet& bullet : world.bullets)
+    {
+        if(!bullet.isActive){ continue; }
+        bullet.moveOffset = {0, -1};
+    }
+}
+
+void bulletFinish(World& world,
+    const GameSettings& settings)
+{
+    for(Bullet& bullet : world.bullets)
+    {
+        if(!bullet.isActive){ continue; }
+        if(bullet.position.y <= settings.bulletFinishPoint)
+        {
+            bullet.isActive = false;
+        }
+    }
+}
+
+void collisionBulletAsteroid(World& world)
+{
+    for(Bullet& bullet : world.bullets)
+    {
+        if(!bullet.isActive){ continue; }
+
+        for(Asteroid& asteroid : world.asteroids)
+        {
+            if(!asteroid.isActive){ continue; }
+            if(!isColliding(&bullet, &asteroid)){ continue; }
+
+            bullet.isActive = false;
+            asteroid.isActive = false;
+        }
+    }
+}
+
+void collisionPlayerAsteroid(World& world,
+    const GameSettings& settings)
+{
+    for(Asteroid& asteroid : world.asteroids)
+    {
+        if(!world.player.isActive || !asteroid.isActive){ continue; }
+        if(!isColliding(&world.player, &asteroid)){ continue; }
+
+        asteroid.isActive = false;
+        world.player.hp -= settings.hpWhenCollision;
+    }
+}
+
+bool isColliding(const Entity* a, 
+    const Entity* b)
+{
+    const Vec2i sizeA = a->sprite.getSize();
+    const Vec2i sizeB = b->sprite.getSize(); 
+    
+    return (a->position.x < b->position.x + sizeB.x &&
+            a->position.x + sizeA.x > b->position.x &&
+            a->position.y < b->position.y + sizeB.y &&
+            a->position.y + sizeA.y > b->position.y);
+}
+
 }

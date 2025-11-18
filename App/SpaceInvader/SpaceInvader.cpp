@@ -18,6 +18,12 @@ void SpaceInvader::update()
 
     ecs_system::initAsteroids(mWorld, mGameSettings);
     ecs_system::moveAsteroids(mWorld, mGameSettings);
+    ecs_system::moveBullets(mWorld, mGameSettings);
+    ecs_system::bulletFinish(mWorld, mGameSettings);
+    ecs_system::collisionBulletAsteroid(mWorld);
+    ecs_system::collisionPlayerAsteroid(mWorld, mGameSettings);
+    
+
     ecs_system::move(mWorld);
     ecs_system::asteroidFinish(mWorld, mGameSettings);
 
@@ -49,6 +55,7 @@ bool SpaceInvader::isGameOver() const
 
 void SpaceInvader::fire()
 {
+    mWorld.bullets.push_back(Factory::createBullet(mWorld, mGameSettings));
 }
 
 void SpaceInvader::moveUp()

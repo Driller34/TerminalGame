@@ -3,6 +3,8 @@
 #include "../SpaceInvader/Entities/Entity.hpp"
 #include "../SpaceInvader/Entities/Player.hpp"
 #include "../../Core/ResourceManager.hpp"
+#include "../../Core/Utils/Color.hpp"
+#include "../../Core/Utils/Vec.hpp"
 #include "../Utils/GameSettings.hpp"
 
 namespace Factory
@@ -14,4 +16,7 @@ namespace Factory
     void createAsteroids(World& world,
         const GameSettings& settings,
         ResourceManager& resourceManager);
+
+    Bullet createBullet(World& world,
+        const GameSettings& settings);
 }

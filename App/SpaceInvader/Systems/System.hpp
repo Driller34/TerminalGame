@@ -23,4 +23,18 @@ void asteroidFinish(World& world,
 
 void initAsteroids(World& world,
     const GameSettings& settings);
+
+void moveBullets(World& world,
+    const GameSettings& settings);
+
+void bulletFinish(World& world,
+    const GameSettings& settings);
+
+void collisionBulletAsteroid(World& world);
+
+void collisionPlayerAsteroid(World& world,
+    const GameSettings& settings);
+
+bool isColliding(const Entity* a, 
+    const Entity* b);
 }

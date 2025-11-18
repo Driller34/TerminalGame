@@ -20,7 +20,18 @@ namespace Factory
     {
         for(size_t i = 0; i < settings.numAsteroids; i++)
         {
-            world.asteroids.emplace_back(resourceManager.getImage("Images/asteroid.bmp"));
+            world.asteroids.emplace_back(EntityType::AI,
+                resourceManager.getImage("Images/asteroid.bmp"));
         }
+    }
+
+    Bullet createBullet(World& world,
+        const GameSettings& settings)
+    {
+        Bullet bullet(EntityType::AI, Image(1, 1, Color{255, 0, 0, 255}));
+        bullet.position = world.player.position;
+        bullet.isActive = true;
+
+        return bullet;
     }
 }

@@ -23,6 +23,7 @@ struct GameSettings
     std::chrono::milliseconds asteroidsUpdateTimeout;
 
     int asteroidFinishPoint;
+    int bulletFinishPoint;
 
     Vec2i spawnXRange;
     Vec2i spawnYRange;
