@@ -14,7 +14,7 @@
 #include "../Core/Layers/LayerManager.hpp"
 #include "../Core/Layers/Layer.hpp"
 #include "../Core/Layers/PauseLayer.hpp"
-#include "../SpaceInvader.hpp"
+#include "../SpaceInvader/SpaceInvader.hpp"
 
 class GameLayer : public Layer
 {

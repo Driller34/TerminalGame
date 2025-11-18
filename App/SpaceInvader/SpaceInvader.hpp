@@ -3,21 +3,21 @@
 #include <cstdlib>
 #include <chrono>
 #include <memory>
-#include "GameObjects/Player.hpp"
-#include "../Core/Graphic/Window.hpp"
-#include "../Core/ResourceManager.hpp"
-#include "../Core/Utils/Vec.hpp"
-#include "../Core/Utils/Input.hpp"
-#include "../Core/Utils/Color.hpp"
-#include "../Core/Utils/Clock.hpp"
-#include "../Core/Base/Drawable.hpp"
-#include "../Core/GUI/ProgressBar.hpp"
-#include "../Core/ECS/World.hpp"
-#include "../Core/ECS/Entity.hpp"
-#include "../Core/ECS/System.hpp"
+#include "../GameObjects/Player.hpp"
+#include "../../Core/Graphic/Window.hpp"
+#include "../../Core/ResourceManager.hpp"
+#include "../../Core/Utils/Vec.hpp"
+#include "../../Core/Utils/Input.hpp"
+#include "../../Core/Utils/Color.hpp"
+#include "../../Core/Utils/Clock.hpp"
+#include "../../Core/Base/Drawable.hpp"
+#include "../../Core/GUI/ProgressBar.hpp"
+#include "../../Core/ECS/World.hpp"
+#include "../../Core/ECS/Entity.hpp"
+#include "../../Core/ECS/System.hpp"
 #include "System.hpp"
-#include "Utils/GameSettings.hpp"
-#include "Factory/EntityFactory.hpp"
+#include "../Utils/GameSettings.hpp"
+#include "../Factory/EntityFactory.hpp"
 
 class SpaceInvader : public Drawable
 {

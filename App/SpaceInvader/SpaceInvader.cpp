@@ -21,7 +21,9 @@ void SpaceInvader::update()
     ecs_system::initAsteroids(mWorld, mGameSettings);
     ecs_system::moveAsteroids(mWorld, mGameSettings);
     ecs_system::move(mWorld);
-    ecs_system::asteroidFinish(mWorld, mGameSettings);
+    ecs_system::asteroidFinish(mWorld, mGameSettings, mPlayerID);
+
+    mHpBar.setValue(mWorld.getEntity(mPlayerID).hp);
 
     if(mWorld.getEntity(mPlayerID).hp <= 0)
     {

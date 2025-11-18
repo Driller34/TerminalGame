@@ -3,6 +3,8 @@ set(HEADERS
     Utils/Vec.hpp
     Utils/Clock.hpp
     Utils/RNG.hpp
+    Utils/Input.hpp
+    Utils/InputHandler.hpp
     Graphic/Image.hpp
     Loader/BMP.hpp
     Loader/BMPLoader.hpp
@@ -14,7 +16,6 @@ set(HEADERS
     ECS/System.hpp
     Graphic/Window.hpp
     Graphic/Sprite.hpp
-    Utils/Input.hpp
     Layers/Layer.hpp
     Layers/LayerManager.hpp
     Layers/PauseLayer.hpp
@@ -26,6 +27,7 @@ set(HEADERS
 set(SOURCES
     Utils/Clock.cpp
     Utils/RNG.cpp
+    Utils/InputHandler.cpp
     GUI/Rectangle.cpp
     GUI/ProgressBar.cpp
     ECS/World.cpp

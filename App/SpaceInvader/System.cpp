@@ -2,6 +2,11 @@
 
 namespace ecs_system
 {
+    
+void collision(World& world)
+{
+
+}
 
 void moveAsteroids(World& world,
     const GameSettings& settings)
@@ -26,7 +31,8 @@ void moveAsteroids(World& world,
 }
 
 void asteroidFinish(World& world, 
-    const GameSettings& settings)
+    const GameSettings& settings,
+    const EntityID playerID)
 {
     for(Entity& entity : world.getEntities())
     {
@@ -35,6 +41,7 @@ void asteroidFinish(World& world,
            && entity.position.y >= settings.asteroidFinishPoint)
         {
             entity.isActive = false;
+            world.getEntity(playerID).hp -= settings.hpWhenAsteridFinish;
         }
     }
 }    

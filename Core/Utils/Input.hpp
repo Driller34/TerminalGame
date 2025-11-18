@@ -7,7 +7,7 @@
 
 namespace Input
 {
-    inline std::optional<char> getKey()
+    inline termios setNewSettings()
     {
         termios oldSettings;
         termios newSettings;
@@ -17,13 +17,24 @@ namespace Input
         newSettings.c_lflag &= ~(ICANON | ECHO);
         tcsetattr(STDIN_FILENO, TCSANOW, &newSettings);
 
+        return oldSettings;
+    }
+
+    inline void restoreSettings(termios& oldSettings)
+    {
+        tcsetattr(STDIN_FILENO, TCSANOW, &oldSettings);
+    }
+
+    inline std::optional<char> getKey()
+    {
+        termios oldSettings = setNewSettings();
+
         int flags = fcntl(STDIN_FILENO, F_GETFL);
         fcntl(STDIN_FILENO, F_SETFL, flags | O_NONBLOCK);
 
         char buffor = 0;
         int n = read(STDIN_FILENO, &buffor, sizeof(buffor));
 
-        tcsetattr(STDIN_FILENO, TCSANOW, &oldSettings);
         fcntl(STDIN_FILENO, F_SETFL, flags);
 
         if(n > 0){ return buffor; }
