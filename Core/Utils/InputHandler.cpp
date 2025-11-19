@@ -10,7 +10,9 @@ InputHandler::InputHandler()
 
 InputHandler::~InputHandler()
 {
+#ifndef _WIN32
     disableRawMode();
+#endif
 }
 
 #ifdef _WIN32
@@ -22,7 +24,6 @@ InputHandler::~InputHandler()
         }
         return std::nullopt;
     }
-#endif
 
 #else
     std::optional<char> InputHandler::getKey()
@@ -76,4 +77,4 @@ InputHandler::~InputHandler()
         
         return newSettings;
     }
-#endif;
+#endif
