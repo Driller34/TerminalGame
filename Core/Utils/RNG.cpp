@@ -2,7 +2,6 @@
 
 namespace rng
 {
-
 int randomInt(const Vec2i& range)
 {
     const int minVal = std::min(range.x, range.y);
