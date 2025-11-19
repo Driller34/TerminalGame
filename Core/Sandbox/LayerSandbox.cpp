@@ -2,8 +2,8 @@
 #include <filesystem>
 #include "../Graphic/Window.hpp"
 #include "../Graphic/Sprite.hpp"
-#include "../Utils/Input.hpp"
 #include "../Utils/Vec.hpp"
+#include "../Utils/InputHandler.hpp"
 #include "../Layers/Layer.hpp"
 #include "../Layers/LayerManager.hpp"
 #include "../Loader/BMPLoader.hpp"
@@ -59,6 +59,7 @@ private:
 int main()
 {
     Window window(100, 80);
+    InputHandler handler;
     LayerManager manager;
 
     manager.push(std::make_unique<SandboxLayer>(manager));
@@ -67,7 +68,7 @@ int main()
     {
         window.clear();
 
-        auto input = Input::getKey();
+        auto input = handler.getKey();
         if(input)
         {
             manager.inputHandler(input.value());

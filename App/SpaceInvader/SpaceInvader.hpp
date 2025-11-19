@@ -6,7 +6,6 @@
 #include "../../Core/Graphic/Window.hpp"
 #include "../../Core/ResourceManager.hpp"
 #include "../../Core/Utils/Vec.hpp"
-#include "../../Core/Utils/Input.hpp"
 #include "../../Core/Utils/Color.hpp"
 #include "../../Core/Utils/Clock.hpp"
 #include "../../Core/Base/Drawable.hpp"

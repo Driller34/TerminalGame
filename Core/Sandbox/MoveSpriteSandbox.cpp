@@ -1,10 +1,12 @@
 #include "../Graphic/Window.hpp"
 #include "../Graphic/Sprite.hpp"
-#include "../Utils/Input.hpp"
+#include "../Utils/InputHandler.hpp"
 
 int main()
 {
     Window window(50ULL, 90ULL);
+    InputHandler handler;
+
     std::vector<std::vector<Color>> b1(4, std::vector<Color>(4, {0, 255, 0, 255}));
     Image s1(4, 4);
     s1.setImage(b1);
@@ -15,7 +17,7 @@ int main()
     {
         window.clear();
         
-        const auto event = Input::getKey();
+        const auto event = handler.getKey();
         if(event)
         {
             if(event.value() == 'a')

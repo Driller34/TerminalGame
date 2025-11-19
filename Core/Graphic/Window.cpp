@@ -33,8 +33,8 @@ void Window::display()
     {
         for(size_t x = 0ULL; x < mViewImage.width; x++)
         {
-            Vec2i current{x, y};
-            displayPoint(current, mViewImage.getColor(current));
+            const Vec2i currentPosition{static_cast<int>(x), static_cast<int>(y)};
+            displayPoint(currentPosition, mViewImage.getColor(currentPosition));
         }
     }
 }
@@ -53,8 +53,9 @@ void Window::draw(const Image& image,
     {
         for(size_t x = 0ULL; x < image.width; x++)
         {
-            const Vec2i currentPosition = Vec2i{x, y} + position;
-            setColor(currentPosition, image.getColor(Vec2i{x, y}));
+            Vec2i currentPosition{static_cast<int>(x), static_cast<int>(y)};
+            currentPosition += position;
+            setColor(currentPosition, image.getColor(Vec2i{static_cast<int>(x), static_cast<int>(y)}));
         }
     }
 }

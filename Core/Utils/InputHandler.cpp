@@ -1,6 +1,8 @@
 #include "InputHandler.hpp"
 
+#ifndef _WIN32
 bool InputHandler::sIsRawModeEnabled = false;
+#endif
 
 InputHandler::InputHandler()
 {
@@ -11,49 +13,67 @@ InputHandler::~InputHandler()
     disableRawMode();
 }
 
-std::optional<char> InputHandler::getKey()
-{
-    if(!sIsRawModeEnabled){ enableRawMode(); }
+#ifdef _WIN32
+    std::optional<char> InputHandler::getKey()
+    {
+        if(_kbhit())
+        {
+            return _getch();
+        }
+        return std::nullopt;
+    }
+#endif
 
-    char buffer = 0;
-    const int n = read(STDIN_FILENO, &buffer, 1);
+#else
+    std::optional<char> InputHandler::getKey()
+    {
+        if(!sIsRawModeEnabled){ enableRawMode(); }
 
-    if(n > 0){ return buffer; }
+        const int flags = fcntl(STDIN_FILENO, F_GETFL);
+        fcntl(STDIN_FILENO, F_SETFL, flags | O_NONBLOCK);
 
-    return std::nullopt;
-}
+        char buffer = 0;
+        const int n = read(STDIN_FILENO, &buffer, 1);
 
-void InputHandler::enableRawMode()
-{
-    sIsRawModeEnabled = true;
+        fcntl(STDIN_FILENO, F_SETFL, flags);
 
-    tcgetattr(STDIN_FILENO, &mSavedTerminal);
+        if(n > 0){ return buffer; }
 
-    termios raw = makeRaw(mSavedTerminal);
-    applyTerminalSettings(raw);
-}
+        return std::nullopt;
+    }
 
-void InputHandler::disableRawMode()
-{
-    if(!sIsRawModeEnabled){ return; }
+    void InputHandler::enableRawMode()
+    {
+        sIsRawModeEnabled = true;
 
-    sIsRawModeEnabled = false;
+        tcgetattr(STDIN_FILENO, &mSavedTerminal);
 
-    applyTerminalSettings(mSavedTerminal);
-}
+        termios raw = makeRaw(mSavedTerminal);
+        applyTerminalSettings(raw);
+    }
 
-void InputHandler::applyTerminalSettings(const termios& settings)
-{
-    tcsetattr(STDIN_FILENO, TCSANOW, &settings);
-}
+    void InputHandler::disableRawMode()
+    {
+        if(!sIsRawModeEnabled){ return; }
 
-termios InputHandler::makeRaw(const termios& current) const
-{
-    termios newSettings = current;
-    
-    newSettings.c_lflag &= ~(ICANON | ECHO);
-    newSettings.c_cc[VMIN] = 0;
-    newSettings.c_cc[VTIME] = 0;
-    
-    return newSettings;
-}
+        sIsRawModeEnabled = false;
+
+        applyTerminalSettings(mSavedTerminal);
+    }
+
+    void InputHandler::applyTerminalSettings(const termios& settings)
+    {
+        tcsetattr(STDIN_FILENO, TCSANOW, &settings);
+    }
+
+    termios InputHandler::makeRaw(const termios& current) const
+    {
+        termios newSettings = current;
+        
+        newSettings.c_lflag &= ~(ICANON | ECHO);
+        newSettings.c_cc[VMIN] = 0;
+        newSettings.c_cc[VTIME] = 0;
+        
+        return newSettings;
+    }
+#endif;

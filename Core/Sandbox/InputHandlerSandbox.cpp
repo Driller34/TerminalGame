@@ -1,7 +1,7 @@
 #include <iostream>
-#include <termios.h>
 #include "../Utils/InputHandler.hpp"
 
+#ifndef _WIN32
 void printMode()
 {
     termios settings;
@@ -10,6 +10,7 @@ void printMode()
     std::cout<<"ICANON="<<((settings.c_lflag & ICANON) ? 1 : 0)<<std::endl;
     std::cout<<"ECHO="<<((settings.c_lflag & ECHO)   ? 1 : 0)<<std::endl;
 }
+#endif
 
 void f()
 {
@@ -37,8 +38,9 @@ int main()
 
     //auto c = handler.getKey();
 
+#ifndef _WIN32
     printMode();
-
+#endif
     std::cout << "Podaj a: " << std::endl;
     int a;
     std::cin >> a;

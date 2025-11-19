@@ -13,8 +13,8 @@ void Sprite::setImage(const Image& image)
 Vec2i Sprite::getSize() const
 {
     return {
-        mImage.width,
-        mImage.height
+        static_cast<int>(mImage.width),
+        static_cast<int>(mImage.height)
     };
 }
 
