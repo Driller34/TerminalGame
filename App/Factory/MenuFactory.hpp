@@ -12,12 +12,12 @@
 
 namespace factory
 {
-    std::unique_ptr<MenuLayer> createMenu(LayerManager& layerManager,
-        ResourceManager& resourceManager);
+std::unique_ptr<MenuLayer> createMenu(LayerManager& layerManager,
+    ResourceManager& resourceManager);
 
-    std::unique_ptr<MenuLayer> createDifficultMenu(LayerManager& layerManager,
-        ResourceManager& resourceManager);
+std::unique_ptr<MenuLayer> createDifficultMenu(LayerManager& layerManager,
+    ResourceManager& resourceManager);
 
-    std::unique_ptr<MenuLayer> createPauseMenu(LayerManager& layerManager,
-        ResourceManager& resourceManager);
+std::unique_ptr<MenuLayer> createPauseMenu(LayerManager& layerManager,
+    ResourceManager& resourceManager);
 }

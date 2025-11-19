@@ -9,14 +9,14 @@
 
 namespace factory
 {
-    Player createPlayer(World& world,
-        const GameSettings& settings,
-        ResourceManager& resourceManager);
+Player createPlayer(World& world,
+    const GameSettings& settings,
+    ResourceManager& resourceManager);
 
-    void createAsteroids(World& world,
-        const GameSettings& settings,
-        ResourceManager& resourceManager);
+void createAsteroids(World& world,
+    const GameSettings& settings,
+    ResourceManager& resourceManager);
 
-    Bullet createBullet(World& world,
-        const GameSettings& settings);
+Bullet createBullet(World& world,
+    const GameSettings& settings);
 }
