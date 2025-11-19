@@ -18,6 +18,7 @@ Built with modern **C++23** and **CMake** for cross‑platform compatibility.
 
 ## 🖥️ Tested Platforms
 - 🐧 Linux (Manjaro 25.0, Arch Linux)
+- 🪟 Windows 11
 
 ## Getting Started
 
@@ -41,7 +42,7 @@ Built with modern **C++23** and **CMake** for cross‑platform compatibility.
 - ⬇️ **S** → move down
 - ➡️ **D** → move right
 - ⬅️ **A** → move left
-- 🔫SPACE → accept / fire
+- 🔫 **SPACE** → accept / fire
 - ⏸️ **ESC** → Pause game
 
 ## 📄Licence
