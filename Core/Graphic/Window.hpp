@@ -1,9 +1,11 @@
 #pragma once
 #include <iostream>
 #include <concepts>
+#include <string>
 #include "../Base/Drawable.hpp"
 #include "../Base/Transformable.hpp"
 #include "Image.hpp"
+#include "WindowBuffer.hpp"
 #include "../Utils/Vec.hpp"
 #include "../Utils/Color.hpp"
 
@@ -37,12 +39,8 @@ public:
     void display();
 
 private:
-    void displayPoint(const Vec2i& position,
-        const Color& color);
-
-private:
     size_t mWidth;
     size_t mHeight;
 
-    Image mViewImage;
+    WindowBuffer mWindowBuffer;
 };
