@@ -37,11 +37,11 @@ Built with modern **C++23** and **CMake** for cross‑platform compatibility.
    ```
 
 ## 🎮Controls
-- ⬆️W move up
-- ⬇️S move down
-- ➡️D move right
-- ⬅️A move left
-- 🔫SPACE accept / fire
+- ⬆️ **W** → move up
+- ⬇️ **S** → move down
+- ➡️ **D** → move right
+- ⬅️ **A** → move left
+- 🔫SPACE → accept / fire
 - ⏸️ **ESC** → Pause game
 
 ## 📄Licence
