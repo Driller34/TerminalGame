@@ -28,7 +28,8 @@ namespace factory
     Bullet createBullet(World& world,
         const GameSettings& settings)
     {
-        Bullet bullet(EntityType::AI, Image(1, 1, Color{255, 0, 0, 255}));
+        Bullet bullet(EntityType::AI, Image(settings.bulletWidth, 
+            settings.bulletHeight, Color{255, 0, 0, 255}));
         bullet.position = world.player.position;
         bullet.isActive = true;
 
