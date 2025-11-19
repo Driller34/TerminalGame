@@ -5,11 +5,11 @@ SpaceInvader::SpaceInvader(ResourceManager& resourceManager,
     : mResourceManager(resourceManager),
     mGameSettings(settings),
     mIsGameOver(false),
-    mWorld(Factory::createPlayer(mWorld, mGameSettings, mResourceManager)),
+    mWorld(factory::createPlayer(mWorld, mGameSettings, mResourceManager)),
     mHpBar(100, 2, mGameSettings.fullPlayerHp)
 {
     srand(time(NULL));
-    Factory::createAsteroids(mWorld, mGameSettings, mResourceManager);
+    factory::createAsteroids(mWorld, mGameSettings, mResourceManager);
 }
 
 void SpaceInvader::update()
@@ -55,7 +55,7 @@ bool SpaceInvader::isGameOver() const
 
 void SpaceInvader::fire()
 {
-    mWorld.bullets.push_back(Factory::createBullet(mWorld, mGameSettings));
+    mWorld.bullets.push_back(factory::createBullet(mWorld, mGameSettings));
 }
 
 void SpaceInvader::moveUp()

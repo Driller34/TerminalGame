@@ -6,7 +6,7 @@ Game::Game(const size_t width,
     mResourceManager(std::filesystem::path(PROJECT_ROOT_DIR ) / "Resources"),
     mInputHandler()
 {
-    mLayerManager.push(Factory::makeMenu(mLayerManager, mResourceManager));
+    mLayerManager.push(factory::createMenu(mLayerManager, mResourceManager));
 }
 
 void Game::run()

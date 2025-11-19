@@ -1,6 +1,6 @@
 #include "EntityFactory.hpp"
 
-namespace Factory
+namespace factory
 {
     Player createPlayer(World& world,
         const GameSettings& settings,

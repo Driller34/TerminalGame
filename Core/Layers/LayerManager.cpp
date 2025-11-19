@@ -8,9 +8,13 @@ void LayerManager::push(std::unique_ptr<Layer> layer)
     layers.top()->activateState();
 }
 
-void LayerManager::pop()
+void LayerManager::pop(const size_t n)
 {
-    if(!layers.empty()){ layers.pop(); }
+    for(size_t i = 0ULL; i < n; i++)
+    {
+        if(!layers.empty()){ layers.pop(); }    
+    }
+    
     if(!layers.empty()){ layers.top()->activateState(); }
 }
 

@@ -25,6 +25,9 @@ struct GameSettings
     int asteroidFinishPoint;
     int bulletFinishPoint;
 
+    int bulletWidth;
+    int bulletHeight;
+
     Vec2i spawnXRange;
     Vec2i spawnYRange;
 };  

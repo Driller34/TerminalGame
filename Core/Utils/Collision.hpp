@@ -1,9 +1,13 @@
 #pragma once
-#include "../Graphic/Shape.hpp"
+#include "../Graphic/Sprite.hpp"
+#include "../ECS/Entity.hpp"
 
 namespace collision
 {
-bool inBounds(const Vec2i& position, 
-    const Vec2i& first,
-    const Vec2i& last);
+bool isPointInRect(const Vec2i& point,
+    const Vec2i& topLeft,
+    const Vec2i& bottomRight);
+
+bool isColliding(const Entity* a, 
+    const Entity* b);
 }

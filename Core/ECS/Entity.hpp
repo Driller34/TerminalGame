@@ -1,6 +1,6 @@
 #pragma once
-#include "../../../Core/Utils/Vec.hpp"
-#include "../../../Core/Graphic/Sprite.hpp"
+#include "../Utils/Vec.hpp"
+#include "../Graphic/Sprite.hpp"
 
 enum class EntityType{ PLAYER, AI };
 

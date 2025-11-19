@@ -1,13 +1,13 @@
 #pragma once
 #include "../SpaceInvader/World.hpp"
-#include "../SpaceInvader/Entities/Entity.hpp"
+#include "../../Core/ECS/Entity.hpp"
 #include "../SpaceInvader/Entities/Player.hpp"
 #include "../../Core/ResourceManager.hpp"
 #include "../../Core/Utils/Color.hpp"
 #include "../../Core/Utils/Vec.hpp"
 #include "../Utils/GameSettings.hpp"
 
-namespace Factory
+namespace factory
 {
     Player createPlayer(World& world,
         const GameSettings& settings,

@@ -1,5 +1,5 @@
 #pragma once
-#include "Entity.hpp"
+#include "../../../Core/ECS/Entity.hpp"
 #include "../../../Core/Graphic/Image.hpp"
 #include "../../../Core/Graphic/Sprite.hpp"
 #include "../../../Core/Utils/Vec.hpp"

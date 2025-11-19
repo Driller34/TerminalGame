@@ -7,6 +7,7 @@
 #include "../../../Core/Graphic/Sprite.hpp"
 #include "../../../Core/Utils/RNG.hpp"
 #include "../../../Core/Utils/Clock.hpp"
+#include "../../../Core/Utils/Collision.hpp"
 
 namespace ecs_system
 {
@@ -34,7 +35,4 @@ void collisionBulletAsteroid(World& world);
 
 void collisionPlayerAsteroid(World& world,
     const GameSettings& settings);
-
-bool isColliding(const Entity* a, 
-    const Entity* b);
 }

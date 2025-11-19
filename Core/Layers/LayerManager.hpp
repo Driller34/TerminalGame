@@ -14,7 +14,7 @@ public:
     void inputHandler(const char pressedKey);
 
     void push(std::unique_ptr<Layer> layer);
-    void pop();
+    void pop(const size_t n = 1ULL);
     void change(std::unique_ptr<Layer> layer);
     Layer* top() const;
     bool empty() const;

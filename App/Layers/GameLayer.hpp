@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <chrono>
 #include <memory>
+#include "../Factory/MenuFactory.hpp"
 #include "../Utils/GameSettings.hpp"
 #include "../Core/Graphic/Window.hpp"
 #include "../Core/ResourceManager.hpp"

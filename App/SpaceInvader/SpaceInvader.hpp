@@ -12,7 +12,7 @@
 #include "../../Core/Base/Drawable.hpp"
 #include "../../Core/GUI/ProgressBar.hpp"
 #include "World.hpp"
-#include "Entities/Entity.hpp"
+#include "../../Core/ECS/Entity.hpp"
 #include "Systems/System.hpp"
 #include "../Utils/GameSettings.hpp"
 #include "../Factory/EntityFactory.hpp"

@@ -41,7 +41,7 @@ void GameLayer::inputHandler(const char pressedKey)
             if(!mSpaceInvader.isGameOver())
             {
                 mLayerManager.push(
-                    std::make_unique<PauseLayer>(mLayerManager, mResourceManager));
+                    factory::createPauseMenu(mLayerManager, mResourceManager));
             }
             else{ mLayerManager.pop(); }
 
