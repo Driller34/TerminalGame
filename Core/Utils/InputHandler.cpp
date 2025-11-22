@@ -1,7 +1,7 @@
 #include "InputHandler.hpp"
 
 #ifndef _WIN32
-bool InputHandler::sIsRawModeEnabled = false;
+    bool InputHandler::sIsRawModeEnabled = false;
 #endif
 
 InputHandler::InputHandler()

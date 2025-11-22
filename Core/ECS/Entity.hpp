@@ -10,7 +10,7 @@ struct Entity
     Sprite sprite;
     Vec2i position;
     Vec2i moveOffset;
-    size_t hp;
+    int hp;
     bool isActive;
 
     Entity(const EntityType type,

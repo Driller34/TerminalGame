@@ -20,14 +20,6 @@ public:
     std::optional<char> getKey();
 
 private:
-#ifdef _WIN32
-    void enableRawMode();
-    void disableRawMode();
-
-    bool mIsRawModeEnabled{false};
-    HANDLE mInputHandle{nullptr};
-    DWORD mSavedConsoleMode{0};
-#endif
 #ifndef _WIN32
     void enableRawMode();
     void disableRawMode();
