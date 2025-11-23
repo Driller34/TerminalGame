@@ -7,9 +7,7 @@ GameLayer::GameLayer(LayerManager& layerManager,
     mResourceManager(resourceManager),
     mGameSettings(settings),
     mSpaceInvader(mResourceManager, mGameSettings)
-{
-    init();
-}
+{}
 
 void GameLayer::init()
 {

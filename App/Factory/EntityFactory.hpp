@@ -1,7 +1,6 @@
 #pragma once
 #include "../SpaceInvader/World.hpp"
 #include "../../Core/ECS/Entity.hpp"
-#include "../SpaceInvader/Entities/Player.hpp"
 #include "../../Core/ResourceManager.hpp"
 #include "../../Core/Utils/Color.hpp"
 #include "../../Core/Utils/Vec.hpp"

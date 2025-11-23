@@ -1,7 +1,8 @@
 #pragma once
 #include <vector>
-#include "Entities/Player.hpp"
+#include "../../Core/ECS/Entity.hpp"
 
+using Player = Entity;
 using Asteroid = Entity;
 using Bullet = Entity;
 

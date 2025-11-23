@@ -60,22 +60,22 @@ void SpaceInvader::fire()
 
 void SpaceInvader::moveUp()
 {
-    mWorld.player.moveUp();
+    mWorld.player.moveOffset += {0, -1};
 }
 
 void SpaceInvader::moveDown()
 {
-    mWorld.player.moveDown();
+    mWorld.player.moveOffset += {0, 1};
 }
 
 void SpaceInvader::moveLeft()
 {
-    mWorld.player.moveLeft();
+    mWorld.player.moveOffset += {-1, 0};
 }
 
 void SpaceInvader::moveRight()
 {
-    mWorld.player.moveRight();
+    mWorld.player.moveOffset += {1, 0};
 }
 
 void SpaceInvader::gameOver()

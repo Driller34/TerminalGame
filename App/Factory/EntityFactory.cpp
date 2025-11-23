@@ -6,12 +6,15 @@ namespace factory
         const GameSettings& settings,
         ResourceManager& resourceManager)
     {
-        return Player(resourceManager.getImage("Images/spaceship.bmp"),
-            settings.playerStartPosition,
-            {0, 0},
-            settings.fullPlayerHp,
-            true
-        );
+        Player player(EntityType::PLAYER,
+            resourceManager.getImage("Images/spaceship.bmp"));
+        
+        player.position = settings.playerStartPosition;
+        player.moveOffset = {0, 0};
+        player.hp = settings.fullPlayerHp;
+        player.isActive = true;
+
+        return player;
     }
 
     void createAsteroids(World& world,
@@ -30,6 +33,7 @@ namespace factory
     {
         Bullet bullet(EntityType::AI, Image(settings.bulletWidth, 
             settings.bulletHeight, Color{255, 0, 0, 255}));
+            
         bullet.position = world.player.position;
         bullet.isActive = true;
 
