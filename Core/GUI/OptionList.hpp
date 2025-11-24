@@ -23,7 +23,7 @@ class OptionList : public Drawable,
                    public Transformable
 {
 public:
-    OptionList();
+    OptionList(const size_t margin = 0);
 
     void addOption(const Option& option);
 
@@ -36,7 +36,11 @@ public:
         const Vec2i& position) override;
 
 private:
+    void setHighlight(const Option& option);
+
+private:
     size_t mSelectedOption;
+    size_t mMargin;
     gui::Rectangle mHighlight;
     std::vector<Option> mOptions;
 };  

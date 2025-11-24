@@ -2,6 +2,12 @@
 
 namespace gui
 {
+Rectangle::Rectangle()
+    : mWidth(0ULL),
+    mHeight(0ULL),
+    mColor(0, 0, 0, 0)
+{}
+
 Rectangle::Rectangle(const size_t width,
     const size_t height,
     const Color& color)

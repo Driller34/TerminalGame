@@ -11,6 +11,8 @@ class Rectangle : public Drawable,
                   public Transformable
 {
 public:
+    Rectangle();
+
     Rectangle(const size_t width,
         const size_t height,
         const Color& color);

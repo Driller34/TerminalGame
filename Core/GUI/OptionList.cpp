@@ -3,9 +3,9 @@
 namespace gui
 {
 
-OptionList::OptionList()
+OptionList::OptionList(const size_t margin)
     : mSelectedOption(0ULL),
-    mHighlight(0, 0, {0, 0, 0, 0})
+    mMargin(2ULL)
 {}
 
 void OptionList::addOption(const Option& option)
@@ -36,25 +36,30 @@ void OptionList::executeSelectedOption()
     mOptions[mSelectedOption].onAction();
 }
 
+void OptionList::setHighlight(const Option& option)
+{
+    mHighlight.setSize({ option.image.width, option.image.height });
+    mHighlight.setColor(option.color);
+}
+
 void OptionList::draw(Window& renderTarget, 
     const Vec2i& position)
 {
     const size_t n = mOptions.size();
+    
     Vec2i currentPosition = getPosition();
     
     for(size_t i = 0ULL; i < n; i++)
     {
         if(i == mSelectedOption)
         {
-            mHighlight.setSize({mOptions[i].image.width, mOptions[i].image.height});
-            mHighlight.setColor(mOptions[i].color);
-
+            setHighlight(mOptions[i]);
             renderTarget.draw(mHighlight, currentPosition);
         }
 
         renderTarget.draw(mOptions[i].image, currentPosition);
 
-        currentPosition.y += mOptions[i].image.height + 2;
+        currentPosition.y += mOptions[i].image.height + mMargin;
     }
 }
 
