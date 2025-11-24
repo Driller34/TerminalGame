@@ -17,15 +17,16 @@ void SpaceInvader::update()
     if(mIsGameOver){ return; }
 
     ecs_system::initAsteroids(mWorld, mGameSettings);
+
     ecs_system::moveAsteroids(mWorld, mGameSettings);
     ecs_system::moveBullets(mWorld, mGameSettings);
+    ecs_system::movePlayer(mWorld);
+
+    ecs_system::asteroidFinish(mWorld, mGameSettings);
     ecs_system::bulletFinish(mWorld, mGameSettings);
+    
     ecs_system::collisionBulletAsteroid(mWorld);
     ecs_system::collisionPlayerAsteroid(mWorld, mGameSettings);
-    
-
-    ecs_system::move(mWorld);
-    ecs_system::asteroidFinish(mWorld, mGameSettings);
 
     mHpBar.setValue(mWorld.player.hp);
 

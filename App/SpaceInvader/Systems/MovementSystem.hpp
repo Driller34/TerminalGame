@@ -6,7 +6,7 @@
 
 namespace ecs_system
 {
-void move(World& world);
+void movePlayer(World& world);
 
 void moveAsteroids(World& world,
     const GameSettings& settings);

@@ -3,15 +3,10 @@
 namespace ecs_system
 {
 
-void move(World& world)
+void movePlayer(World& world)
 {
-    world.forEach([&](Entity* entity){
-        if(entity->isActive)
-        {
-            entity->position += entity->moveOffset;
-            entity->moveOffset = {0, 0};
-        }
-    });
+    world.player.position += world.player.moveOffset;
+    world.player.moveOffset = {0, 0};
 }
 
 void moveAsteroids(World& world,
@@ -29,7 +24,7 @@ void moveAsteroids(World& world,
     for(Asteroid& asteroid : world.asteroids)
     {
         if(!asteroid.isActive){ continue; }
-        asteroid.moveOffset = {0, 1};
+        asteroid.position += {0, 1};
     }
 }
 
@@ -39,7 +34,7 @@ void moveBullets(World& world,
     for(Bullet& bullet : world.bullets)
     {
         if(!bullet.isActive){ continue; }
-        bullet.moveOffset = {0, -1};
+        bullet.position += {0, -1};
     }
 }
 
