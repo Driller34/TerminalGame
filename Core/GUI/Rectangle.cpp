@@ -21,6 +21,11 @@ void Rectangle::setSize(const Vec2ull& size)
     mHeight = size.y;
 }
 
+void Rectangle::setColor(const Color& color)
+{
+    mColor = color;
+}
+
 void Rectangle::draw(Window& renderTarget, 
         const Vec2i& position)
 {

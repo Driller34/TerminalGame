@@ -21,6 +21,8 @@ public:
 
     void setSize(const Vec2ull& size);
 
+    void setColor(const Color& color);
+
     virtual void draw(Window& renderTarget, 
         const Vec2i& position) override;
 
