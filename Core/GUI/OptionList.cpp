@@ -19,7 +19,7 @@ void OptionList::selectNext()
 
     if(n <= 0ULL){ return; }
 
-    mSelectedOption = (n + mSelectedOption + 1) % n;
+    mSelectedOption = (n + mSelectedOption - 1) % n;
 }
 
 void OptionList::selectPrev()
@@ -28,7 +28,7 @@ void OptionList::selectPrev()
 
     if(n <= 0ULL){ return; }
     
-    mSelectedOption = (n + mSelectedOption - 1) % n;
+    mSelectedOption = (n + mSelectedOption + 1) % n;
 }
 
 void OptionList::executeSelectedOption()

@@ -9,14 +9,14 @@ namespace factory
             resourceManager.getImage("Images/MenuBackground.bmp"),
             Vec2i{35, 35});
 
-        menuLayer->addOption(MenuOption{
+        menuLayer->addOption(gui::Option{
             resourceManager.getImage("Images/start.bmp"),
             Color{0, 255, 0, 255},
             [&](){
                 layerManager.push(createDifficultMenu(layerManager, resourceManager));
         }});
 
-        menuLayer->addOption(MenuOption{
+        menuLayer->addOption(gui::Option{
             resourceManager.getImage("Images/exit.bmp"),
             Color{0, 255, 0, 255},
             [&](){
@@ -33,7 +33,7 @@ namespace factory
             resourceManager.getImage("Images/menuDifficultBackground.bmp"),
             Vec2i{35, 25});
 
-        menuLayer->addOption(MenuOption{
+        menuLayer->addOption(gui::Option{
             resourceManager.getImage("Images/easyOption.bmp"),
             Color{0, 255, 0, 255},
             [&](){
@@ -43,7 +43,7 @@ namespace factory
                 ));
         }});
 
-        menuLayer->addOption(MenuOption{
+        menuLayer->addOption(gui::Option{
             resourceManager.getImage("Images/mediumOption.bmp"),
             Color{0, 255, 0, 255},
             [&](){
@@ -53,7 +53,7 @@ namespace factory
                 ));
         }});
 
-        menuLayer->addOption(MenuOption{
+        menuLayer->addOption(gui::Option{
             resourceManager.getImage("Images/hardOption.bmp"),
             Color{0, 255, 0, 255},
             [&](){
@@ -63,7 +63,7 @@ namespace factory
                 ));
         }});
 
-        menuLayer->addOption(MenuOption{
+        menuLayer->addOption(gui::Option{
             resourceManager.getImage("Images/exit.bmp"),
             Color{0, 255, 0, 255},
             [&](){
@@ -80,14 +80,14 @@ namespace factory
             resourceManager.getImage("Images/pauseBackground.bmp"),
             Vec2i{35, 25});
 
-        menuLayer->addOption(MenuOption{
+        menuLayer->addOption(gui::Option{
             resourceManager.getImage("Images/resumeOption.bmp"),
             Color{0, 255, 0, 255},
             [&](){
                 layerManager.pop();
         }});
 
-        menuLayer->addOption(MenuOption{
+        menuLayer->addOption(gui::Option{
             resourceManager.getImage("Images/exit.bmp"),
             Color{0, 255, 0, 255},
             [&](){

@@ -3,6 +3,7 @@
 #include "GameSettingsFactory.hpp"
 #include "../Utils/GameSettings.hpp"
 #include "../Layers/GameLayer.hpp"
+#include "../../Core/GUI/OptionList.hpp"
 #include "../../Core/Layers/LayerManager.hpp"
 #include "../../Core/Layers/MenuLayer.hpp"
 #include "../../Core/ResourceManager.hpp"

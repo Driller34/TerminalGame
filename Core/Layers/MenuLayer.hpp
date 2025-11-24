@@ -1,31 +1,12 @@
 #pragma once
 #include <functional>
+#include "../GUI/OptionList.hpp"
 #include "../Graphic/Image.hpp"
 #include "../GUI/Rectangle.hpp"
 #include "../Utils/Vec.hpp"
 #include "../Utils/Color.hpp"
 #include "LayerManager.hpp"
 #include "Layer.hpp"
-
-struct MenuOption
-{
-    Image image;
-    gui::Rectangle selectedBackground;
-    std::function<void()> onAction;
-
-    MenuOption(const Image& img,
-        const Color& backgroundColor,
-        std::function<void()> callback = nullptr)
-        : image(img),
-        selectedBackground(gui::Rectangle(img.width, img.height, backgroundColor)),
-        onAction(callback)
-    {}
-
-    void action()
-    {
-        if(onAction){ onAction(); }
-    }
-};
 
 class MenuLayer : public Layer
 {
@@ -40,16 +21,11 @@ public:
     virtual void activateState() override;
     virtual void inputHandler(const char pressedKey) override;
 
-    void addOption(const MenuOption& option);
-
-private:
-    void select(const size_t n);
-    void executeMenuOption();
+    void addOption(const gui::Option& option);
 
 private:
     LayerManager& mLayerManager;
     Image mBackgroundImage;
-    Vec2i mOptionsPosition;
-    size_t mSelectedOption;
-    std::vector<MenuOption> mMenuOptions;
+
+    gui::OptionList mMenuOptions;
 };
