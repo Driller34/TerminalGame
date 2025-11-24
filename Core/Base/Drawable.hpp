@@ -9,7 +9,7 @@ class Drawable
 public:
     virtual ~Drawable() = default;
 
-    virtual void draw(Window& renderTarger, 
+    virtual void draw(Window& renderTarget, 
         const Vec2i& position) = 0;
 };
 

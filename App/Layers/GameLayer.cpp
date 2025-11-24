@@ -21,7 +21,7 @@ void GameLayer::update()
 
 void GameLayer::draw(Window& window)
 {
-    window.draw(mSpaceInvader);
+    mSpaceInvader.draw(window);
 }
 
 void GameLayer::activateState(){}

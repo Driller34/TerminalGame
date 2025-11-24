@@ -18,8 +18,8 @@ Vec2i Sprite::getSize() const
     };
 }
 
-void Sprite::draw(Window& window,
+void Sprite::draw(Window& renderTarget,
     const Vec2i& position)
 {
-    window.draw(mImage, position);
+    renderTarget.draw(mImage, position);
 }

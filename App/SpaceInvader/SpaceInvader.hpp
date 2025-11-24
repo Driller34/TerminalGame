@@ -19,7 +19,7 @@
 #include "../Utils/GameSettings.hpp"
 #include "../Factory/EntityFactory.hpp"
 
-class SpaceInvader : public Drawable
+class SpaceInvader
 {
 public:
     SpaceInvader(ResourceManager& resourceManager,
@@ -27,8 +27,7 @@ public:
 
     void update();
 
-    virtual void draw(Window& renderTarger, 
-        const Vec2i& position) override;
+    void draw(Window& renderTarger);
         
     bool isGameOver() const;
     

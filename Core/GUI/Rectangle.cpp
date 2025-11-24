@@ -21,7 +21,7 @@ void Rectangle::setSize(const Vec2ull& size)
     mHeight = size.y;
 }
 
-void Rectangle::draw(Window& renderTarger, 
+void Rectangle::draw(Window& renderTarget, 
         const Vec2i& position)
 {
     const Vec2i offset = position;
@@ -30,7 +30,7 @@ void Rectangle::draw(Window& renderTarger,
     {
         for(int j = 0; j < mHeight; j++)
         {
-            renderTarger.setColor(Vec2i{i, j} + offset, mColor);
+            renderTarget.setColor(Vec2i{i, j} + offset, mColor);
         }
     }
 }

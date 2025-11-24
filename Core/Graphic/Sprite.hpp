@@ -16,7 +16,7 @@ public:
 
     Vec2i getSize() const;
 
-    virtual void draw(Window& window,
+    virtual void draw(Window& renderTarget,
         const Vec2i& position) override;
     
 private:

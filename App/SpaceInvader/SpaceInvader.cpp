@@ -35,8 +35,7 @@ void SpaceInvader::update()
     }
 }
 
-void SpaceInvader::draw(Window& renderTarger, 
-        const Vec2i& position)
+void SpaceInvader::draw(Window& renderTarger)
 {
     if(mIsGameOver)
     {

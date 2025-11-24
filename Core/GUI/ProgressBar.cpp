@@ -37,7 +37,7 @@ int ProgressBar::getValueWidth() const
     return answer > 0 ? answer : 0;
 }
 
-void ProgressBar::draw(Window& renderTarger, 
+void ProgressBar::draw(Window& renderTarget, 
     const Vec2i& position)
 {
     const int valueWidth = getValueWidth();
@@ -47,8 +47,8 @@ void ProgressBar::draw(Window& renderTarger,
     
     emptyRectangle.setPosition(Vec2i{valueWidth, 0});
 
-    renderTarger.draw(valueRectangle, position);
-    renderTarger.draw(emptyRectangle, position);
+    renderTarget.draw(valueRectangle, position);
+    renderTarget.draw(emptyRectangle, position);
 }
 
 }
