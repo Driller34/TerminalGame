@@ -55,7 +55,7 @@ bool SpaceInvader::isGameOver() const
 
 void SpaceInvader::fire()
 {
-    mWorld.bullets.push_back(factory::createBullet(mWorld, mGameSettings));
+    ecs_system::initBullet(mWorld, mGameSettings);
 }
 
 void SpaceInvader::moveUp()

@@ -31,6 +31,12 @@ void initAsteroids(World& world,
     }
 }
 
+void initBullet(World& world,
+    const GameSettings& settings)
+{
+    world.bullets.push_back(factory::createBullet(world, settings));
+}
+
 void bulletFinish(World& world,
     const GameSettings& settings)
 {
