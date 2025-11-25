@@ -15,6 +15,7 @@ Built with modern **C++23** and **CMake** for cross‑platform compatibility.
 ## 🛠Technologies Used
 - ⚡C++ 23
 -  🏗CMake for cross-platform building
+- 📊 [Google Benchmark](https://github.com/google/benchmark)
 
 ## 🖥️ Tested Platforms
 - 🐧 Linux (Manjaro 25.0, Arch Linux)
