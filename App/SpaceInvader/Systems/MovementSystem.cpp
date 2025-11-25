@@ -6,6 +6,10 @@ namespace ecs_system
 void movePlayer(World& world)
 {
     world.player.position += world.player.moveOffset;
+    if(!collision::isEntityInRect(&world.player, {0, 0}, {100, 80}))
+    {
+        world.player.position -= world.player.moveOffset;
+    }
     world.player.moveOffset = {0, 0};
 }
 

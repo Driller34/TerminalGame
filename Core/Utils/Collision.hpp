@@ -8,6 +8,10 @@ bool isPointInRect(const Vec2i& point,
     const Vec2i& topLeft,
     const Vec2i& bottomRight);
 
+bool isEntityInRect(const Entity* a,
+    const Vec2i& topLeft,
+    const Vec2i& bottomRight);
+
 bool isColliding(const Entity* a, 
     const Entity* b);
 }

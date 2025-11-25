@@ -7,22 +7,22 @@ struct Vec2
     T x;
     T y;
 
-    Vec2 operator*(const T n)
+    Vec2 operator*(const T n) const
     {
         return {x * n, y * n};
     }
 
-    Vec2 operator+(const Vec2& other)
+    Vec2 operator+(const Vec2& other) const
     {
         return {x + other.x, y + other.y};
     }
 
-    Vec2 operator-(const Vec2& other)
+    Vec2 operator-(const Vec2& other) const
     {
         return {x - other.x, y - other.y};
     }
 
-    Vec2 operator-(const T n)
+    Vec2 operator-(const T n) const
     {
         return {x - n, y - n};
     }

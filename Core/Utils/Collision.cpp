@@ -8,10 +8,19 @@ bool isPointInRect(const Vec2i& point,
 {
     return  point.x >= topLeft.x  &&
             point.y >= topLeft.y  &&
-            point.x <  bottomRight.x &&
-            point.y <  bottomRight.y;
+            point.x <= bottomRight.x &&
+            point.y <= bottomRight.y;
 }
 
+bool isEntityInRect(const Entity* a,
+    const Vec2i& topLeft,
+    const Vec2i& bottomRight)
+{
+    Vec2i sizeA = a->sprite.getSize();
+
+    return isPointInRect(a->position, topLeft, bottomRight) 
+        && isPointInRect((a->position + sizeA), topLeft, bottomRight);
+}
 
 bool isColliding(const Entity* a, 
     const Entity* b)

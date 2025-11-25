@@ -3,6 +3,7 @@
 #include "../../Utils/GameSettings.hpp"
 #include "../../../Core/Utils/Vec.hpp"
 #include "../../../Core/Utils/Clock.hpp"
+#include "../../../Core/Utils/Collision.hpp"
 
 namespace ecs_system
 {
