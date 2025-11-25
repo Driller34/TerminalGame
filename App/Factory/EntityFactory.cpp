@@ -34,12 +34,6 @@ namespace factory
         Bullet bullet(EntityType::AI, Image(settings.bulletWidth, 
             settings.bulletHeight, Color{255, 0, 0, 255}));
 
-        const Vec2i playerSize = world.player.sprite.getSize();
-            
-        bullet.position = world.player.position;
-        bullet.position.x += (playerSize.x / 2 - 1);
-        bullet.isActive = true;
-
         return bullet;
     }
 }

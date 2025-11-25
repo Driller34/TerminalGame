@@ -4,6 +4,7 @@
 #include "../../Utils/GameSettings.hpp"
 #include "../../../Core/Utils/Vec.hpp"
 #include "../../../Core/Utils/RNG.hpp"
+#include "../../Utils/BulletUtils.hpp"
 
 namespace ecs_system
 {

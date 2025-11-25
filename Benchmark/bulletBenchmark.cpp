@@ -12,7 +12,7 @@ GameSettings gBenchmarkSettings{
     Position{42, 70},
     HP{100}, HP{50}, HP{10}, 10ULL,
     std::chrono::milliseconds(200),
-    FinishPoint{10},
+    FinishPoint{5},
     FinishPoint{-1}, 
     Width{2},
     Height{2},

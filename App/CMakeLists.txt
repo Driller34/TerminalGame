@@ -9,6 +9,7 @@ file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS
 
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
     Factory/*.cpp
+    Utils/*.cpp
     GameObjects/*.cpp
     SpaceInvader/*.cpp
     Layers/*.cpp

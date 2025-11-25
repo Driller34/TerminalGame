@@ -36,18 +36,15 @@ void initBullet(World& world,
 {
     for(Bullet& bullet : world.bullets)
     {
-        if(bullet.isActive){ continue; }
-
-        const Vec2i playerSize = world.player.sprite.getSize();
-            
-        bullet.position = world.player.position;
-        bullet.position.x += (playerSize.x / 2 - 1);
-        bullet.isActive = true;
-
-        return;
+        if(!bullet.isActive)
+        {
+            bullet_utils::activateBullet(bullet, world.player);
+            return;
+        }
     }
 
     world.bullets.push_back(factory::createBullet(world, settings));
+    bullet_utils::activateBullet(world.bullets.back(), world.player);
 }
 
 void bulletFinish(World& world,
