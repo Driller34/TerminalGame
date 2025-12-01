@@ -46,5 +46,25 @@ Built with modern **C++23** and **CMake** for cross‑platform compatibility.
 - 🔫 **SPACE** → accept / fire
 - ⏸️ **ESC** → Pause game
 
+## Optional Build Targets
+
+The project includes additional executables that are disabled by default:
+
+### Benchmarks
+To build Google Benchmark performance tests:
+
+```
+cmake -DBUILD_BENCHMARKS=ON ..
+make
+```
+
+### Sandbox Programs
+To build sandbox testing executables:
+
+```
+cmake -DBUILD_SANDBOX=ON ..
+make
+```
+
 ## 📄Licence
 MIT
