@@ -30,7 +30,7 @@ namespace factory
         ResourceManager& resourceManager)
     {
         auto menuLayer = std::make_unique<MenuLayer>(layerManager, 
-            resourceManager.getImage("Images/menuDifficultBackground.bmp"),
+            resourceManager.getImage("Images/menuDifficultyBackground.bmp"),
             Vec2i{35, 25});
 
         menuLayer->addOption(gui::Option{
