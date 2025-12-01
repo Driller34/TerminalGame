@@ -22,6 +22,4 @@ add_definitions(-DPROJECT_ROOT_DIR="${CMAKE_SOURCE_DIR}")
 add_subdirectory(Core)
 add_subdirectory(App)
 
-if(CMAKE_BUILD_TYPE STREQUAL "Release")
-    add_subdirectory(Benchmark)
-endif()
+add_subdirectory(Benchmark)
