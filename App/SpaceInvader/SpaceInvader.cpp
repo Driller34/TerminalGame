@@ -8,7 +8,6 @@ SpaceInvader::SpaceInvader(ResourceManager& resourceManager,
     mWorld(factory::createPlayer(mWorld, mGameSettings, mResourceManager)),
     mHpBar(100, 2, mGameSettings.fullPlayerHp)
 {
-    srand(time(NULL));
     factory::createAsteroids(mWorld, mGameSettings, mResourceManager);
 }
 
