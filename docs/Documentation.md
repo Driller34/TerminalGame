@@ -20,3 +20,7 @@ This section describes the high-level structure of the application and its main 
     - [Layer](Core/Layers/Layer.md)
     - [LayerManager](Core/Layers/LayerManager.md)
     - [MenuLayer](Core/Layers/MenuLayer.md)
+- **GUI**
+    - [OptionList](Core/GUI/OptionList.md)
+    - [ProgressBar](Core/GUI/ProgressBar.md)
+    - [Rectangle](Core/GUI/Rectangle.md)
