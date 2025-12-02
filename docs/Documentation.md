@@ -27,3 +27,6 @@ This section describes the high-level structure of the application and its main 
 - **Loader**
     - [BMP](Core/Loader/BMP.md)
     - [BMPLoader](Core/Loader/BMPLoader.md)
+- **Base**
+    - [Drawable](Core/Base/Drawable.md)
+    - [Transformable](Core/Base/Transformable.md)
