@@ -16,3 +16,7 @@ This section describes the high-level structure of the application and its main 
     - [InputHandler](Core/Utils/InputHandler.md)
     - [RNG](Core/Utils/RNG.md)
     - [Vec](Core/Utils/Vec.md)
+- **Layers**
+    - [Layer](Core/Layers/Layer.md)
+    - [LayerManager](Core/Layers/LayerManager.md)
+    - [MenuLayer](Core/Layers/MenuLayer.md)

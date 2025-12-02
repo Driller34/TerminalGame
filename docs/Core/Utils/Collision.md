@@ -11,9 +11,9 @@ namespace collision
 ```
 
 ## Member functions
-- [isPointInRect]
-- [isEntityInRect]
-- [isColliding]
+- [isPointInRect](#ispointinrect)
+- [isEntityInRect](#isentityinrect)
+- [isColliding](#iscolliding)
 
 ## example
 ```

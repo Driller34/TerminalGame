@@ -13,17 +13,17 @@ class InputHandler
 ## Priivate Attributes
 - (Windows) none visible  
 - (Non-Windows)
-  - static bool sIsRawModeEnabled – tracks if terminal raw mode is enabled
-  - termios mSavedTerminal – stores original terminal settings for restoration
+  - `static bool sIsRawModeEnabled` – tracks if terminal raw mode is enabled
+  - `termios mSavedTerminal` – stores original terminal settings for restoration
 
 ## Member functions
-- [constructor]
-- [destructor]
-- [getKey]
-- [enableRawMode (Non-Windows)]
-- [disableRawMode (Non-Windows)]
-- [makeRaw (Non-Windows)]
-- [applyTerminalSettings (Non-Windows)]
+- [constructor](#constructor)
+- [destructor](#destructor)
+- [getKey](#getkey)
+- [enableRawMode (Non-Windows)](#enablerawmode-non-windows)
+- [disableRawMode (Non-Windows)](#disablerawmode-non-windows)
+- [makeRaw (Non-Windows)](#makeraw-non-windows)
+- [applyTerminalSettings (Non-Windows)](#applyterminalsettings-non-windows)
 
 ## example
 InputHandler input;

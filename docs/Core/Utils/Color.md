@@ -11,10 +11,10 @@ struct Color
 ```
 
 ## Attributes
-- uint8_t red – red channel (default 0)
-- uint8_t green – green channel (default 0)
-- uint8_t blue – blue channel (default 0)
-- uint8_t alpha – alpha channel (default 255)
+- `uint8_t red` – red channel (default 0)
+- `uint8_t green` – green channel (default 0)
+- `uint8_t blue` – blue channel (default 0)
+- `uint8_t alpha` – alpha channel (default 255)
 
 ## Member functions
 - [toString](#tostring)
