@@ -30,3 +30,8 @@ This section describes the high-level structure of the application and its main 
 - **Base**
     - [Drawable](Core/Base/Drawable.md)
     - [Transformable](Core/Base/Transformable.md)
+- **Graphic**
+    - [Image](Core/Graphic/Image.md)
+    - [Sprite](Core/Graphic/Sprite.md)
+    - [Window](Core/Graphic/Window.md)
+    - [WindowBuffer](Core/Graphic/WindowBuffer.md)
