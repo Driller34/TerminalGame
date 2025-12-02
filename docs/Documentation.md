@@ -35,3 +35,4 @@ This section describes the high-level structure of the application and its main 
     - [Sprite](Core/Graphic/Sprite.md)
     - [Window](Core/Graphic/Window.md)
     - [WindowBuffer](Core/Graphic/WindowBuffer.md)
+- [ResourceManager](Core/ResourceManager.md)
