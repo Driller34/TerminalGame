@@ -3,6 +3,17 @@
 TerminalGame is a **Space Invaders–style game** created as a **student project at the University of Wrocław**, running entirely in the terminal using ANSI escape codes.  
 Built with modern **C++23** and **CMake** for cross‑platform compatibility.
 
+## Table of content
+- [Gameplay](#gameplay)
+- [Features](#-features)
+- [Technologies Used](#technologies-used)
+- [Tested Platforms](#️-tested-platforms)
+- [Getting Started](#getting-started)
+- [Controls](#controls)
+- [Optional Build Targets](#optional-build-targets)
+- [Licence](#licence)
+- [Documentation](docs/Documentation.md)
+
 ## Gameplay
 
 ![Gameplay](docs/finalGameplay.gif)
