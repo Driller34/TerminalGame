@@ -24,3 +24,6 @@ This section describes the high-level structure of the application and its main 
     - [OptionList](Core/GUI/OptionList.md)
     - [ProgressBar](Core/GUI/ProgressBar.md)
     - [Rectangle](Core/GUI/Rectangle.md)
+- **Loader**
+    - [BMP](Core/Loader/BMP.md)
+    - [BMPLoader](Core/Loader/BMPLoader.md)
