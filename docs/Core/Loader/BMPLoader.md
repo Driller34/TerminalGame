@@ -47,6 +47,9 @@ Image loadBMP(const std::filesystem::path& path);
 ### Parameters
 - `const std::filesystem::path& path` – path to the BMP file to be loaded
 
+### Exceptions
+Throws `std::runtime_error` if the file cannot be loaded.
+
 ### Return type
 ```
 Image

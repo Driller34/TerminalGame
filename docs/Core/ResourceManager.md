@@ -54,8 +54,8 @@ void addImage(const std::filesystem::path& path);
 ## getImage
 
 ### Description
-Retrieves a previously loaded image from the resource manager.  
-If the image does not exist, behavior depends on implementation (may throw or return default).
+Retrieves a previously loaded image from the resource manager.
+If the image does not exist, it automatically loads it using addImage before returning.
 
 ### Declaration
 ```
